@@ -1,0 +1,16 @@
+.h-list--unstyled {
+    list-style: none;
+}
+
+.h-list--no-spacing {
+    margin: 0;
+    padding: 0;
+}
+
+.h-list--horizontal__item {
+    margin: ($defaultUnit * 0.5) 0 ($defaultUnit * 0.5) $defaultUnit;
+
+    &:first-child {
+        margin-left: 0;
+    }
+}

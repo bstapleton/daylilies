@@ -1,0 +1,9 @@
+.l-page-content {
+    padding: 0 ($defaultUnit * 4) 0 ($defaultUnit * 2);
+    flex: 1 1 auto;
+}
+
+.l-page-content__title {
+    margin-top: 0;
+    font-size: 2rem;
+}

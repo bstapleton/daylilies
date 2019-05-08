@@ -1,0 +1,31 @@
+// Typography
+$font-family-sans-serif: 'Open Sans', sans-serif;
+$font-family-sans-cursive: 'Great Vibes', cursive;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Colors
+$brandLight: #99cc99;
+$brandDark: #006600;
+$defaultText: #222;
+$backgroundColour: #f3f3f3;
+$borderColour: #ddd;
+$cardBackgroundColour: #fff;
+
+$defaultUnit: 8px;
+
+
+// Responsive grid variables
+$screen-sm-min: 577px;
+$screen-md-min: 768px;
+$screen-lg-min: 992px;
+$screen-xl-min: 1500px;
+$screen-xs-max: 576px;
+$screen-sm-max: $screen-md-min - 1;
+$screen-md-max: $screen-lg-min - 1;
+$screen-lg-max: $screen-xl-min - 1;
+
+// Shadow settings
+$shadow-key-umbra-opacity:      0.20 !default;
+$shadow-key-penumbra-opacity:   0.14 !default;
+$shadow-ambient-shadow-opacity: 0.12 !default;

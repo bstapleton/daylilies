@@ -1,0 +1,18 @@
+.l-sidebar-navigation {
+    flex: 0 0 200px;
+    padding: 0 $defaultUnit;
+}
+
+.l-sidebar-navigation__list {
+    margin: 0;
+    padding: 0;
+}
+
+.l-sidebar-navigation__item {
+    margin: 0 0 $defaultUnit;
+}
+
+.l-sidebar-navigation__link {
+    padding: $defaultUnit * 0.5;
+    display: block;
+}

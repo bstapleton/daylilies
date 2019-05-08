@@ -1,0 +1,27 @@
+.c-button {
+    border-radius: $defaultUnit * 0.5;
+    padding: ($defaultUnit * 0.5) $defaultUnit;
+    text-decoration: none;
+}
+
+.c-button--default {
+    border: 1px solid $brandDark;
+    color: $brandDark;
+
+    &:hover,
+    &:active {
+        background-color: $brandDark;
+        color: $backgroundColour;
+    }
+}
+
+.c-button--success {
+    border: 1px solid $brandDark;
+    background-color: $brandDark;
+    color: $backgroundColour;
+
+    &:hover,
+    &:active {
+        @include shadow-3dp();
+    }
+}

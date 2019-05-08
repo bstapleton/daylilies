@@ -1,0 +1,70 @@
+.c-plant-list {
+    margin: 0 0 ($defaultUnit * 3);
+    padding: 0;
+}
+
+.c-plant-list__item {
+    border: 1px solid $borderColour;
+    padding: 0;
+    border-radius: $defaultUnit;
+    background-color: $cardBackgroundColour;
+    transition: 0.3s box-shadow ease-in-out;
+
+    &:not(:last-child) {
+        margin: 0 0 ($defaultUnit * 2);
+    }
+
+    &:hover {
+        @include shadow-6dp();
+    }
+}
+
+.c-plant-list__detail {
+    flex: 1 1 auto;
+}
+
+.c-plant-list__description {
+    flex: 1 1 auto;
+    padding: $defaultUnit ($defaultUnit * 2);
+}
+
+.c-plant-list__stock {
+    flex: 0 0 200px;
+    border-radius: 0 $defaultUnit $defaultUnit 0;
+    border-left: 1px solid $borderColour;
+    padding: $defaultUnit ($defaultUnit * 2);
+}
+
+.c-plant-list__title {
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin: 0;
+    padding: $defaultUnit ($defaultUnit * 2);
+    background: $backgroundColour;
+    border-radius: 0 $defaultUnit 0 0;
+    color: $brandDark;
+}
+
+.c-plant-list__thumbnail {
+    flex: 0 0 150px;
+    max-height: 150px;
+}
+
+.c-plant-list__image {
+    border-radius: $defaultUnit 0 0 $defaultUnit;
+}
+
+.c-plant-list__tag {
+    height: $defaultUnit * 3;
+    line-height: $defaultUnit * 3;
+    padding: ($defaultUnit * 0.5) $defaultUnit;
+    flex: 0 1 100px;
+    border-radius: $defaultUnit;
+    background-color: $brandDark;
+    color: $backgroundColour;
+    transition: background-color 0.1s ease-in-out;
+
+    &:hover {
+        background-color: lighten($brandDark, 5%);
+    }
+}

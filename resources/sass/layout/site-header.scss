@@ -1,0 +1,13 @@
+.l-site-header {
+    padding: ($defaultUnit * 4) 0;
+    background-color: $brandLight;
+    color: $brandDark;
+    border-bottom: $defaultUnit solid $brandDark;
+    font-size: 2rem;
+    margin-bottom: $defaultUnit * 4;
+}
+
+.l-site-header__title {
+    text-align: center;
+    margin: 0;
+}
