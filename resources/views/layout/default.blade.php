@@ -20,25 +20,25 @@
         <div class="l-sidebar-navigation">
             <ul class="l-sidebar-navigation__list h-list--unstyled">
                 <li class="l-sidebar-navigation__item">
-                    <a href="#" class="l-sidebar-navigation__link">Home</a>
+                    <a href="#" class="l-sidebar-navigation__link" title="A La Carte Daylilies homepage">Home</a>
                 </li>
                 <li class="l-sidebar-navigation__item">
-                    <a href="#" class="l-sidebar-navigation__link">New plants</a>
+                    <a href="#" class="l-sidebar-navigation__link" title="New Daylilies for {{Date('Y')}} and {{Date('Y') - 1}}">New plants</a>
                 </li>
                 <li class="l-sidebar-navigation__item">
-                    <a href="#" class="l-sidebar-navigation__link">Large flowered</a>
+                    <a href="#" class="l-sidebar-navigation__link" title="Large flowered daylilies">Large flowered</a>
                 </li>
                 <li class="l-sidebar-navigation__item">
-                    <a href="#" class="l-sidebar-navigation__link">Small flowered</a>
+                    <a href="#" class="l-sidebar-navigation__link" title="Small flowered daylilies">Small flowered</a>
                 </li>
                 <li class="l-sidebar-navigation__item">
-                    <a href="#" class="l-sidebar-navigation__link">Miniatures</a>
+                    <a href="#" class="l-sidebar-navigation__link" title="Miniature flowered daylilies">Miniatures</a>
                 </li>
                 <li class="l-sidebar-navigation__item">
-                    <a href="#" class="l-sidebar-navigation__link">Spider daylilies</a>
+                    <a href="#" class="l-sidebar-navigation__link" title="Spider flowered and unusual form daylilies">Spider daylilies</a>
                 </li>
                 <li class="l-sidebar-navigation__item">
-                    <a href="#" class="l-sidebar-navigation__link">Order form</a>
+                    <a href="#" class="l-sidebar-navigation__link" title="Online daylily order form">Order form</a>
                 </li>
                 <li class="l-sidebar-navigation__item">
                     <a href="#" class="l-sidebar-navigation__link">Contact us</a>
