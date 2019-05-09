@@ -74,7 +74,7 @@
                                         <td>
                                             <span itemprop="value">{{$plant->height}}</span>
                                             <meta itemprop="unitCode" content="inches">"
-                                            (<span itemprop="value">71</span><meta itemprop="unitCode" content="centimetres">cm)
+                                            (<span itemprop="value">{{$plant->heightInCm}}</span><meta itemprop="unitCode" content="centimetres">cm)
                                         </td>
                                     </tr>
                                     <tr itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
@@ -82,7 +82,7 @@
                                         <td>
                                             <span itemprop="value">{{$plant->flower_size}}</span>
                                             <meta itemprop="unitCode" content="inches">"
-                                            (<span itemprop="value">13</span><meta itemprop="unitCode" content="centimetres">cm)
+                                            (<span itemprop="value">{{$plant->flowerInCm}}</span><meta itemprop="unitCode" content="centimetres">cm)
                                         </td>
                                     </tr>
                                 </table>

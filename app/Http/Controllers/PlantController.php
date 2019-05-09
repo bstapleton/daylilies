@@ -65,6 +65,8 @@ class PlantController extends Controller
         foreach ($plants as $plant) {
             $plant->genome = $this->getPloidy($plant->genome);
             $plant->foliage = $this->getFoliage($plant->foliage);
+            $plant->heightInCm = $this->convertInchesToCentimetres($plant->height);
+            $plant->flowerInCm = $this->convertInchesToCentimetres($plant->flower_size);
         }
 
         return view('plants-list', ['plants' => $plants, 'category' => ucfirst($category) . ' daylilies', 'title' => ucfirst($category) . ' daylilies']);
@@ -170,5 +172,14 @@ class PlantController extends Controller
     private function getPloidy($p)
     {
         return $p == 'd' ? 'Diploid' : 'Tetraploid';
+    }
+
+    /**
+     * @param $input float Number to convert.
+     * @return float Inch value converted into centimetres.
+     */
+    private function convertInchesToCentimetres($input)
+    {
+        return number_format(($input * 2.54), 2);
     }
 }

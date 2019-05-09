@@ -22,8 +22,8 @@ class CreatePlantsTable extends Migration
             $table->integer('category_id');
             $table->integer('year_bred')->nullable();
             $table->text('description');
-            $table->integer('height');
-            $table->integer('flower_size');
+            $table->float('height');
+            $table->float('flower_size');
             $table->enum('genome', ['d', 't'])->index();
             $table->enum('foliage', ['e', 's', 'd'])->index();
             $table->decimal('price', 4, 2);
