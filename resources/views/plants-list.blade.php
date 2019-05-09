@@ -112,6 +112,8 @@
             </li>
         @endforeach
     </ul>
+
+    {{$plants->links()}}
 @endsection
 
 @section('layout-footer')

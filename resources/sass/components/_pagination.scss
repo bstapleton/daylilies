@@ -1,0 +1,35 @@
+.c-pagination__link {
+    display: block;
+    height: $defaultUnit * 5;
+    width: $defaultUnit * 5;
+    text-align: center;
+    line-height: $defaultUnit * 5;
+
+    &:not(.c-pagination__link--disabled) {
+        border: 1px solid $brandDark;
+        border-radius: $defaultUnit * 0.5;
+        color: $brandDark;
+        text-decoration: none;
+        transition: 0.1s background-color ease-in-out;
+
+        &.c-pagination__link--active,
+        &:hover {
+            background-color: $brandDark;
+            color: $backgroundColour;
+        }
+    }
+}
+
+.c-pagination__item {
+    padding-bottom: $defaultUnit * 0.5;
+
+    &:not(.c-pagination__item--disabled) {
+        &:hover {
+            border-bottom: 2px solid $brandDark;
+        }
+    }
+}
+
+.c-pagination__item--active {
+    border-bottom: 2px solid $brandDark;
+}
