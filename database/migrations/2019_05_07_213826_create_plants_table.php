@@ -19,14 +19,13 @@ class CreatePlantsTable extends Migration
             $table->string('slug')->unique();
             $table->integer('breeder_id')->unsigned();
             $table->integer('year_added')->nullable()->index();
-            $table->enum('type', ['large', 'small', 'spider', 'miniature'])->index();
+            $table->integer('category_id');
             $table->integer('year_bred')->nullable();
             $table->text('description');
             $table->integer('height');
             $table->integer('flower_size');
             $table->enum('genome', ['d', 't'])->index();
             $table->enum('foliage', ['e', 's', 'd'])->index();
-            $table->enum('season', ['e', 'e,m', 'm', 'm,l', 'l'])->index();
             $table->decimal('price', 4, 2);
             $table->boolean('in_stock')->index();
             $table->integer('quantity_in_stock');
