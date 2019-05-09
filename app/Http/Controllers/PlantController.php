@@ -56,11 +56,15 @@ class PlantController extends Controller
     public function listCategory(string $category) {
         $plants = Plant::where('type', $category)
             ->orderBy('name', 'asc')
-            ->limit(10)
-            ->get();
+            ->paginate(20);
 
         if ($plants->count() < 1) {
             return view('error', ['category' => 'Category Request', 'request' => $category]);
+        }
+
+        foreach ($plants as $plant) {
+            $plant->genome = $this->getPloidy($plant->genome);
+            $plant->foliage = $this->getFoliage($plant->foliage);
         }
 
         return view('plants-list', ['plants' => $plants, 'category' => ucfirst($category) . ' daylilies', 'title' => ucfirst($category) . ' daylilies']);
@@ -79,7 +83,7 @@ class PlantController extends Controller
 
         $plants = Plant::where('genome', substr($genome,0,1))
             ->orderBy('name', 'asc')
-            ->get();
+            ->paginate(100);
 
         return view('plants-list', ['plants' => $plants, 'category' => ucfirst($genome).' daylilies', 'title' => ucfirst($genome) . ' daylilies']);
     }
@@ -93,7 +97,7 @@ class PlantController extends Controller
     public function listFoliage(string $foliage) {
         $plants = Plant::where('foliage', strtolower(substr($foliage, 0, 1)))
             ->orderBy('name', 'asc')
-            ->get();
+            ->paginate(20);
 
         if ($plants->count() < 1 || ($foliage != 'evergreen' && $foliage != 'semi-evergreen' && $foliage != 'dormant')) {
             return view('error', ['category' => 'Foliage Request', 'request' => $foliage]);
@@ -139,5 +143,32 @@ class PlantController extends Controller
             ->get();
 
         return view('plants-list', ['plants' => $plants, 'category' => 'Daylilies that flower ' . $season . ' season', 'title' => ucfirst($season) . ' season daylilies']);
+    }
+
+    /**
+     * @param $f string The foliage type.
+     * @return string The human-friendly representation of the foliage type for the plant.
+     */
+    private function getFoliage($f)
+    {
+        switch ($f) {
+            case 'e':
+                return 'Evergreen';
+            case 's':
+                return 'Semi-evergreen';
+            case 'd':
+                return 'Dormant';
+            default:
+                return 'Unknown';
+        }
+    }
+
+    /**
+     * @param $p string The ploidy type.
+     * @return string The human-friendly representation of the ploidy type for the plant.
+     */
+    private function getPloidy($p)
+    {
+        return $p == 'd' ? 'Diploid' : 'Tetraploid';
     }
 }
