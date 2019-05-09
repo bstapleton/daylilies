@@ -1,5 +1,9 @@
-.h-flex {
+%h-flex {
     display: flex;
+}
+
+.h-flex {
+    @extend %h-flex;
 }
 
 .h-flex--column {

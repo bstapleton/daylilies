@@ -1,6 +1,4 @@
-/**
- * Shadows for maintaining the pseudo z-index of material design materials
- */
+// Shadows for maintaining the pseudo z-index of material design materials
 @mixin active-shadow() {
     box-shadow: 0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36);
 }

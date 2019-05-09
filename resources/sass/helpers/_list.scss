@@ -7,6 +7,10 @@
     padding: 0;
 }
 
+.h-list--horizontal {
+    @extend %h-flex;
+}
+
 .h-list--horizontal__item {
     margin: ($defaultUnit * 0.5) 0 ($defaultUnit * 0.5) $defaultUnit;
 
