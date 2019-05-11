@@ -11,12 +11,17 @@ use Illuminate\Database\Eloquent\Model;
 class Season extends Model
 {
     /**
+     * @var string Table name for this model.
+     */
+    protected $table = 'seasons';
+
+    /**
      * A Season belongs to many Plants.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function plants()
     {
-        return $this->belongsToMany(Plant::class);
+        return $this->belongsToMany(Plant::class, 'season_plant');
     }
 }

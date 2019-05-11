@@ -11,12 +11,22 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     /**
-     * A Category belongs to many Plants.
+     * @var string Table name for this model.
+     */
+    protected $table = 'categories';
+
+    /**
+     * @var array Fillable fields for this model.
+     */
+    protected $fillable = ['name', 'description'];
+
+    /**
+     * A Category has many Plants.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function plants()
     {
-        return $this->belongsToMany(Plant::class);
+        return $this->hasMany(Plant::class);
     }
 }

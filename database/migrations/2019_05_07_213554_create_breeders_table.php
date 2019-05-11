@@ -16,11 +16,9 @@ class CreateBreedersTable extends Migration
         Schema::create('breeders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('slug')->unique();
-            $table->string('surname')->unique()->index();
-            $table->char('first_initial')->nullable();
-            $table->char('second_initial')->nullable();
-            $table->char('third_initial')->nullable();
-            $table->text('biography');
+            $table->string('surname')->index();
+            $table->string('full_name')->unique();
+            $table->text('biography')->nullable();
             $table->timestamps();
         });
     }

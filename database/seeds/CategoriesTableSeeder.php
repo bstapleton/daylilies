@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
+/**
+ * Class CategoriesTableSeeder
+ */
 class CategoriesTableSeeder extends Seeder
 {
     /**

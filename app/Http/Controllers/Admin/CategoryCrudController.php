@@ -16,46 +16,48 @@ use Backpack\CRUD\CrudPanel;
  */
 class CategoryCrudController extends CrudController
 {
+    /**
+     * Sets up the CRUD form for a category.
+     */
     public function setup()
     {
-        /*
-        |--------------------------------------------------------------------------
-        | CrudPanel Basic Information
-        |--------------------------------------------------------------------------
-        */
         $this->crud->setModel('App\Models\Category');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/category');
         $this->crud->setEntityNameStrings('category', 'categories');
 
-        /*
-        |--------------------------------------------------------------------------
-        | CrudPanel Configuration
-        |--------------------------------------------------------------------------
-        */
+        $this->crud->setColumns([
+            'name',
+            'description'
+        ]);
 
-        // TODO: remove setFromDb() and manually define Fields and Columns
-        $this->crud->setFromDb();
+        $this->crud->addField([
+            'name' => 'name',
+            'type' => 'text',
+            'label' => 'Name',
+            'allows_null' => false
+        ]);
 
-        // add asterisk for fields that are required in CategoryRequest
+        $this->crud->addField([
+            'name' => 'description',
+            'type' => 'textarea',
+            'label' => 'Description'
+        ]);
+
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');
     }
 
     public function store(StoreRequest $request)
     {
-        // your additional operations before save here
         $redirect_location = parent::storeCrud($request);
-        // your additional operations after save here
-        // use $this->data['entry'] or $this->crud->entry
+
         return $redirect_location;
     }
 
     public function update(UpdateRequest $request)
     {
-        // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
-        // your additional operations after save here
-        // use $this->data['entry'] or $this->crud->entry
+
         return $redirect_location;
     }
 }
