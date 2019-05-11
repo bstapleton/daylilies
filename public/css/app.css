@@ -89,7 +89,7 @@
 
 .l-page-content__title {
   margin-top: 0;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .c-button {
@@ -131,6 +131,7 @@
   border-radius: 8px;
   background-color: #fff;
   transition: 0.3s box-shadow ease-in-out;
+  max-width: 1000px;
 }
 
 .c-plant-list__item:not(:last-child) {
@@ -180,7 +181,7 @@
   height: 24px;
   line-height: 24px;
   padding: 4px 8px;
-  flex: 0 1 100px;
+  flex: 0 1 auto;
   border-radius: 8px;
   background-color: #006600;
   color: #f3f3f3;
@@ -204,17 +205,12 @@
   border-radius: 4px;
   color: #006600;
   text-decoration: none;
-  transition: 0.1s background-color ease-in-out;
 }
 
 .c-pagination__link:not(.c-pagination__link--disabled).c-pagination__link--active,
 .c-pagination__link:not(.c-pagination__link--disabled):hover {
   background-color: #006600;
   color: #f3f3f3;
-}
-
-.c-pagination__link.c-pagination__link--disabled {
-  line-height: 32px;
 }
 
 .c-pagination__item {

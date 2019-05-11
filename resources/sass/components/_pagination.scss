@@ -10,7 +10,6 @@
         border-radius: $defaultUnit * 0.5;
         color: $brandDark;
         text-decoration: none;
-        transition: 0.1s background-color ease-in-out;
 
         &.c-pagination__link--active,
         &:hover {
