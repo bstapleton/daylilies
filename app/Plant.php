@@ -27,18 +27,6 @@ class Plant extends Model
     protected $fillable = ['slug', 'name', 'category_id', 'year_added', 'breeders', 'year_bred', 'height', 'flower_size', 'genome_id', 'foliage_id', 'seasons', 'forms', 'description', 'in_stock', 'price', 'quantity_in_stock'];
 
     /**
-     * Dirty, dirty injection of values. Remove before taking down maintenance mode on the live site, but after setup.
-     * TODO: Remove before taking out of maintenance mode.
-     * @param $data
-     */
-    public static function insertData($data){
-        $value=DB::table('plant')->where('id', $data['id'])->get();
-        if($value->count() == 0){
-            DB::table('plant')->insert($data);
-        }
-    }
-
-    /**
      * A Plant belongs to one Category.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

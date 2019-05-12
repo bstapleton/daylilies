@@ -39,15 +39,20 @@
                     </div>
                     <div class="c-plant-list__detail">
                         <h2 itemprop="name" class="c-plant-list__title">{{$plant->name}}</h2>
-                        <meta itemprop="sku" content="{{$plant->type}}{{$plant->id}}">
-                        <meta itemprop="mpn" content="{{$plant->type}}{{$plant->id}}">
+                        <meta itemprop="sku" content="{{$plant->category->name}}{{$plant->id}}">
+                        <meta itemprop="mpn" content="{{$plant->category->name}}{{$plant->id}}">
                         <div class="c-plant-list__content h-flex">
                             <div class="c-plant-list__description">
                                 <p itemprop="description">
-                                    <span itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
-                                        <meta itemprop="name" content="Hybridiser">
-                                        <span itemprop="value">{{$plant->breeder}}</span>
-                                    </span>
+                                    @foreach ($plant->breeders as $breeder)
+                                        <span itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+                                            <meta itemprop="name" content="Hybridiser">
+                                            <span itemprop="value">{{$breeder->full_name}}</span>
+                                        </span>
+                                        @if ($loop->remaining > 0)
+                                            &amp;
+                                        @endif
+                                    @endforeach
                                     <span itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
                                         <meta itemprop="name" content="Year introduced">
                                         (<span itemprop="value">{{$plant->year_bred}}</span>)
@@ -57,31 +62,31 @@
                                 <ul class="h-list--unstyled h-list--no-spacing h-flex">
                                     <li class="h-list--horizontal__item c-plant-list__tag" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
                                         <meta itemprop="name" content="Ploidy">
-                                        <span itemprop="value">{{$plant->genome}}</span>
+                                        <span itemprop="value">{{$plant->genome->name}}</span>
                                     </li>
                                     <li class="h-list--horizontal__item c-plant-list__tag" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
                                         <meta itemprop="name" content="Foliage type">
-                                        <span itemprop="value">{{$plant->foliage}}</span>
+                                        <span itemprop="value">{{$plant->foliage->name}}</span>
                                     </li>
-                                    <li class="h-list--horizontal__item c-plant-list__tag" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
-                                        <meta itemprop="name" content="Bloom time">
-                                        <span itemprop="value">{{$plant->season}}</span>
-                                    </li>
+                                    @foreach ($plant->seasons as $season)
+                                        <li class="h-list--horizontal__item c-plant-list__tag" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+                                            <meta itemprop="name" content="Bloom time">
+                                            <span itemprop="value">{{$season->name}}</span>
+                                        </li>
+                                    @endforeach
                                 </ul>
                                 <table class="stats">
                                     <tr itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
                                         <th itemprop="name">Height</th>
                                         <td>
-                                            <span itemprop="value">{{$plant->height}}</span>
-                                            <meta itemprop="unitCode" content="inches">"
+                                            <span itemprop="value">{{$plant->height}}</span><meta itemprop="unitCode" content="inches">"
                                             (<span itemprop="value">{{$plant->heightInCm}}</span><meta itemprop="unitCode" content="centimetres">cm)
                                         </td>
                                     </tr>
                                     <tr itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
                                         <th itemprop="name">Flower size</th>
                                         <td>
-                                            <span itemprop="value">{{$plant->flower_size}}</span>
-                                            <meta itemprop="unitCode" content="inches">"
+                                            <span itemprop="value">{{$plant->flower_size}}</span><meta itemprop="unitCode" content="inches">"
                                             (<span itemprop="value">{{$plant->flowerInCm}}</span><meta itemprop="unitCode" content="centimetres">cm)
                                         </td>
                                     </tr>
@@ -91,8 +96,7 @@
                             <div class="c-plant-list__stock">
                                 <p class="i" itemprop="offers" itemscope itemtype="http://schema.org/Offer" itemid="#offer">
                                     <meta itemprop="url" content="http://alacartedaylilies.co.uk/large/airs_and_graces.jpg">
-                                    <meta itemprop="priceCurrency" content="GBP">&pound;
-                                    <span itemprop="price">{{$plant->price}}</span>
+                                    <meta itemprop="priceCurrency" content="GBP">&pound;<span itemprop="price">{{$plant->price}}</span>
                                     @if ($plant->in_stock == true)
                                         <link itemprop="availability" href="http://schema.org/InStock" />In stock
                                     @else
@@ -113,7 +117,7 @@
         @endforeach
     </ul>
 
-    {{$plants->links()}}
+    {{ $plants->links() }}
 @endsection
 
 @section('layout-footer')

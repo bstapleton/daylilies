@@ -15,7 +15,6 @@ Route::get('/order-form', function () {
 Route::get('/plants', 'PlantController@index');
     Route::get('/plants/new', 'PlantController@listNew');
     Route::get('/plants/category/{category}', 'PlantController@listCategory');
-    Route::get('/plants/genome/{genome}', 'PlantController@listGenome');
     Route::get('/plants/foliage/{foliage}', 'PlantController@listFoliage');
     Route::get('/plants/season/{season}', 'PlantController@listSeason');
     Route::get('/plants/view/{name}', 'PlantController@view');

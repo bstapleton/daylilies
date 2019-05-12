@@ -4,7 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>A La Carte Daylilies{{$title != null ? ' - ' . $title : null}}</title>
+    @isset ($title)
+        <title>A La Carte Daylilies - {{ $title }}</title>
+    @else
+        <title>A La Carte Daylilies</title>
+    @endisset
 
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
