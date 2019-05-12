@@ -14,7 +14,7 @@ class Plant extends Model
     /**
      * @var string Table for this model
      */
-    protected $table = 'plant';
+    protected $table = 'plants';
 
     /**
      * @var string Primary table key.
@@ -54,7 +54,7 @@ class Plant extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function breeder()
+    public function breeders()
     {
         return $this->belongsToMany(Breeder::class, 'breeder_plant');
     }

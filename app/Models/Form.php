@@ -5,10 +5,10 @@ namespace App\Models;
 use Backpack\CRUD\CrudTrait;
 
 /**
- * Class Plant
+ * Class Form
  * @package App\Models
  */
-class Plant extends \App\Plant
+class Form extends \App\Form
 {
     use CrudTrait;
 }
