@@ -35,11 +35,11 @@ class PlantCrudController extends CrudController
                 'attribute' => 'name',
                 'model' => 'App\Models\Category'
             ],
-            'breeder_id' => [
-                'name' => 'breeder_id',
-                'type' => 'select',
+            'breeders' => [
+                'name' => 'breeders',
+                'type' => 'select_multiple',
                 'label' => 'Breeder/hybridiser',
-                'entity' => 'breeder',
+                'entity' => 'breeders',
                 'attribute' => 'full_name',
                 'model' => 'App\Models\Breeder'
             ],
@@ -55,7 +55,7 @@ class PlantCrudController extends CrudController
                 'name' => 'flower_size',
                 'label' => 'Flower (inches)'
             ],
-            'season' => [
+            'seasons' => [
                 'name' => 'seasons',
                 'type' => 'select_multiple',
                 'label' => 'Bloom season(s)',
@@ -97,12 +97,13 @@ class PlantCrudController extends CrudController
         ]);
 
         $this->crud->addField([
-            'name' => 'breeder_id',
-            'type' => 'select2',
+            'name' => 'breeders',
+            'type' => 'select2_multiple',
             'label' => 'Breeder/hybridiser',
-            'entity' => 'breeder',
+            'entity' => 'breeders',
             'attribute' => 'full_name',
             'model' => "App\Models\Breeder",
+            'pivot' => true,
             'tab' => 'Basic info'
         ]);
 
@@ -168,6 +169,17 @@ class PlantCrudController extends CrudController
             'entity' => 'seasons',
             'attribute' => 'name',
             'model' => "App\Models\Season",
+            'pivot' => true,
+            'tab' => 'Plant details'
+        ]);
+
+        $this->crud->addField([
+            'name' => 'forms',
+            'type' => 'select2_multiple',
+            'label' => 'Registered form(s)',
+            'entity' => 'forms',
+            'attribute' => 'name',
+            'model' => 'App\Models\Form',
             'pivot' => true,
             'tab' => 'Plant details'
         ]);

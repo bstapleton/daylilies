@@ -24,7 +24,7 @@ class Plant extends Model
     /**
      * @var array Editable fields for this model.
      */
-    protected $fillable = ['slug', 'name', 'category_id', 'year_added', 'breeder_id', 'year_bred', 'height', 'flower_size', 'genome_id', 'foliage_id', 'seasons', 'description', 'in_stock', 'price', 'quantity_in_stock'];
+    protected $fillable = ['slug', 'name', 'category_id', 'year_added', 'breeders', 'year_bred', 'height', 'flower_size', 'genome_id', 'foliage_id', 'seasons', 'forms', 'description', 'in_stock', 'price', 'quantity_in_stock'];
 
     /**
      * Dirty, dirty injection of values. Remove before taking down maintenance mode on the live site, but after setup.
@@ -49,14 +49,14 @@ class Plant extends Model
     }
 
     /**
-     * A Plant has one Breeder. Technically this isn't true, but limitations on the data for the breeders makes it
-     * impossible to accurately pinpoint the individual breeders for plants that have more than one.
+     * A Plant can have many Breeders. The vast majority have one, but they are jointly hybridised between two breeders
+     * occasionally.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function breeder()
     {
-        return $this->belongsTo(Breeder::class);
+        return $this->belongsToMany(Breeder::class, 'breeder_plant');
     }
 
     /**
@@ -87,5 +87,16 @@ class Plant extends Model
     public function seasons()
     {
         return $this->belongsToMany(Season::class, 'season_plant');
+    }
+
+    /**
+     * A Plant can have many registered Forms. Since we're doing categories for sorting, a plant categorised as 'spider'
+     * may actually be an 'unusual form' as its registered form.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function forms()
+    {
+        return $this->belongsToMany(Form::class, 'form_plant');
     }
 }

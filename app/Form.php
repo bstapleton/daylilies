@@ -5,28 +5,28 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Breeder
+ * Class Form
  * @package App
  */
-class Breeder extends Model
+class Form extends Model
 {
     /**
      * @var string Table name for this model.
      */
-    protected $table = 'breeders';
+    protected $table = 'forms';
 
     /**
      * @var array Fillable fields for this model.
      */
-    protected $fillable = ['slug', 'surname', 'full_name', 'biography'];
+    protected $fillable = ['name'];
 
     /**
-     * A Breeder belongs to many Plants.
+     * A Form belongs to many Plants.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function plants()
     {
-        return $this->belongsToMany(Plant::class, 'breeder_plant');
+        return $this->belongsToMany(Plant::class, 'form_plant');
     }
 }

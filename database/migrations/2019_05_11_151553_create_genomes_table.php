@@ -16,6 +16,7 @@ class CreateGenomesTable extends Migration
         Schema::create('genomes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+
             $table->timestamps = false;
         });
     }

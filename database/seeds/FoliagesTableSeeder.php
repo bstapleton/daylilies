@@ -16,15 +16,15 @@ class FoliagesTableSeeder extends Seeder
     public function run()
     {
         DB::table('foliages')->insert([
-            'name' => 'Evergreen'
-        ]);
-
-        DB::table('foliages')->insert([
-            'name' => 'Semi-evergreen'
-        ]);
-
-        DB::table('foliages')->insert([
-            'name' => 'Dormant'
+            [
+                'name' => 'Evergreen'
+            ],
+            [
+                'name' => 'Semi-evergreen'
+            ],
+            [
+                'name' => 'Dormant'
+            ]
         ]);
     }
 }

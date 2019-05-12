@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSeasonPlantTable extends Migration
+class CreateFormPlantTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateSeasonPlantTable extends Migration
      */
     public function up()
     {
-        Schema::create('season_plant', function (Blueprint $table) {
-            $table->unsignedInteger('season_id');
+        Schema::create('form_plant', function (Blueprint $table) {
+            $table->unsignedInteger('form_id');
             $table->unsignedInteger('plant_id');
-            $table->primary(['season_id', 'plant_id']);
-            $table->foreign('season_id')->references('id')->on('seasons')->onDelete('cascade');
+            $table->primary(['form_id', 'plant_id']);
+            $table->foreign('form_id')->references('id')->on('forms')->onDelete('cascade');
             $table->foreign('plant_id')->references('id')->on('plants')->onDelete('cascade');
 
             $table->timestamps = false;
@@ -31,6 +31,6 @@ class CreateSeasonPlantTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('season_plant');
+        Schema::dropIfExists('form_plant');
     }
 }

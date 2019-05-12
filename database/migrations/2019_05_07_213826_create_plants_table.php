@@ -14,11 +14,10 @@ class CreatePlantsTable extends Migration
     public function up()
     {
         Schema::create('plants', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('name')->unique()->index();
             $table->string('slug')->unique();
             $table->integer('category_id');
-            $table->integer('breeder_id')->unsigned();
             $table->integer('year_bred')->nullable();
             $table->integer('year_added')->nullable()->index();
             $table->text('description')->nullable();
@@ -29,6 +28,7 @@ class CreatePlantsTable extends Migration
             $table->decimal('price', 8, 2);
             $table->boolean('in_stock')->index();
             $table->integer('quantity_in_stock');
+
             $table->timestamps();
         });
     }

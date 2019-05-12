@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBreedersTable extends Migration
+class CreateFormsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateBreedersTable extends Migration
      */
     public function up()
     {
-        Schema::create('breeders', function (Blueprint $table) {
+        Schema::create('forms', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('slug')->unique();
-            $table->string('surname')->index();
-            $table->string('full_name')->unique();
-            $table->text('biography')->nullable();
+            $table->string('name');
 
-            $table->timestamps();
+            $table->timestamps = false;
         });
     }
 
@@ -31,6 +28,6 @@ class CreateBreedersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('breeders');
+        Schema::dropIfExists('forms');
     }
 }

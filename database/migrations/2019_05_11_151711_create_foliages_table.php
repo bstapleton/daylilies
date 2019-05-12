@@ -16,6 +16,7 @@ class CreateFoliagesTable extends Migration
         Schema::create('foliages', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+
             $table->timestamps = false;
         });
     }

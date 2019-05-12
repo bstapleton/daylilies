@@ -17,22 +17,26 @@ class CategoriesTableSeeder extends Seeder
     {
         DB::table('categories')->insert([
             'name' => 'Large',
-            'description' => ''
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
 
         DB::table('categories')->insert([
             'name' => 'Small',
-            'description' => ''
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
 
         DB::table('categories')->insert([
             'name' => 'Miniature',
-            'description' => ''
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
 
         DB::table('categories')->insert([
             'name' => 'Spider',
-            'description' => ''
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
     }
 }

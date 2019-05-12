@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             BreedersTableSeeder::class,
             CategoriesTableSeeder::class,
             FoliagesTableSeeder::class,
+            FormsTableSeeder::class,
             GenomesTableSeeder::class,
             SeasonsTableSeeder::class,
             UsersTableSeeder::class
