@@ -2,6 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
+/**
+ * Class DatabaseSeeder
+ */
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -17,8 +20,12 @@ class DatabaseSeeder extends Seeder
             FoliagesTableSeeder::class,
             FormsTableSeeder::class,
             GenomesTableSeeder::class,
+            PlantsTableSeeder::class,
             SeasonsTableSeeder::class,
-            UsersTableSeeder::class
+            UsersTableSeeder::class,
+
+            BreederPlantTableSeeder::class,
+            SeasonPlantTableSeeder::class
         ]);
     }
 }

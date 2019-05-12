@@ -528,9 +528,9 @@ class BreedersTableSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
-                'full_name' => 'Griesback',
-                'surname' => 'Griesback',
-                'slug' => 'griesback',
+                'full_name' => 'Griesbach',
+                'surname' => 'Griesbach',
+                'slug' => 'griesbach',
                 'created_at' => now(),
                 'updated_at' => now()
             ],

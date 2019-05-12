@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * Class CreatePlantsTable
+ */
 class CreatePlantsTable extends Migration
 {
     /**
@@ -17,17 +20,17 @@ class CreatePlantsTable extends Migration
             $table->increments('id');
             $table->string('name')->unique()->index();
             $table->string('slug')->unique();
-            $table->integer('category_id');
-            $table->integer('year_bred')->nullable();
-            $table->integer('year_added')->nullable()->index();
+            $table->smallInteger('category_id');
+            $table->smallInteger('year_bred')->nullable();
+            $table->smallInteger('year_added')->nullable()->index();
             $table->text('description')->nullable();
             $table->float('height')->nullable();
             $table->float('flower_size')->nullable();
-            $table->integer('genome_id')->nullable();
-            $table->integer('foliage_id')->nullable();
+            $table->tinyInteger('genome_id')->nullable();
+            $table->tinyInteger('foliage_id')->nullable();
             $table->decimal('price', 8, 2);
             $table->boolean('in_stock')->index();
-            $table->integer('quantity_in_stock');
+            $table->smallInteger('quantity_in_stock');
 
             $table->timestamps();
         });

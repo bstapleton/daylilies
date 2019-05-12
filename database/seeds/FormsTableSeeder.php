@@ -3,6 +3,9 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Class FormsTableSeeder
+ */
 class FormsTableSeeder extends Seeder
 {
     /**
