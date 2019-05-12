@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
 use App\Plant;
 
 /**
@@ -42,6 +41,8 @@ class PlantController extends Controller
      */
     public function listNew() {
         $currentYear = date('Y');
+
+        // todo: smarter listings - only get previous year if there's less than 20 new ones for the current year
 
         $thisYear = Plant::where('year_added', $currentYear)
             ->orderBy('name', 'asc')
