@@ -17,21 +17,48 @@ class BreederPlantTableSeeder extends Seeder
     public function run()
     {
         $csv = array_map('str_getcsv', file('large.csv'));
-        // todo: a) open plants csv b) get breeder_slug to get breeder id from db c) map plant id from csv and breeder id from db to the table recursively
 
         $dataToSeed = [];
 
         foreach ($csv as $row) {
             $breederSlug = $row[6];
 
-            $breederId = Breeder::where('slug', $breederSlug)
+            $breeder = Breeder::where('slug', $breederSlug)
                 ->first();
 
-            if ($breederId != null) {
+            if ($row[0] == 197) {
+                // Special case for what is listed as Adams-Adams because obviously there's one like that.
                 $dataToSeed[] = [
-                    'breeder_id' => $breederId['id'],
+                    'breeder_id' => 1,
+                    'plant_id' => 197
+                ];
+                $dataToSeed[] = [
+                    'breeder_id' => 2,
+                    'plant_id' => 197
+                ];
+            } elseif ($breeder != null) {
+                // Standard insert of 1:m breeder:plant
+                $dataToSeed[] = [
+                    'breeder_id' => $breeder['id'],
                     'plant_id' => $row[0]
                 ];
+            } else {
+                // Catching all the m:m breeder:plant
+                if (strstr($breederSlug, '-')) {
+                    $tupleBreeders = explode('-', $breederSlug);
+
+                    foreach ($tupleBreeders as $normalisedBreeder) {
+                        $breeder = Breeder::where('slug', strtolower($normalisedBreeder))
+                            ->first();
+
+                        if ($breeder != null) {
+                            $dataToSeed[] = [
+                                'breeder_id' => $breeder['id'],
+                                'plant_id' => $row[0]
+                            ];
+                        }
+                    }
+                }
             }
         }
 
