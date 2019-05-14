@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Plant;
+use Intervention\Image\Facades\Image;
 
 /**
  * Class PlantController
@@ -64,13 +65,15 @@ class PlantController extends Controller
     public function listCategory(string $category) {
         $plants = Plant::whereHas('category', function($query) use ($category) {
             $query->whereName(ucfirst($category));
-        })->paginate(20);
+        })->orderBy('name')->paginate(20);
 
-        if ($plants->count() < 1) {
+        if ($plants->count() < 1)
+        {
             return view('error', ['category' => 'Category Request', 'request' => $category]);
         }
 
-        foreach ($plants as $plant) {
+        foreach ($plants as $plant)
+        {
             $plant->heightInCm = $this->convertInchesToCentimetres($plant->height);
             $plant->flowerInCm = $this->convertInchesToCentimetres($plant->flower_size);
         }

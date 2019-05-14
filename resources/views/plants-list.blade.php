@@ -117,7 +117,9 @@
         @endforeach
     </ul>
 
-    {{ $plants->links() }}
+    @if ($plants instanceof \Illuminate\Pagination\LengthAwarePaginator)
+        {{ $plants->links() }}
+    @endif
 @endsection
 
 @section('layout-footer')
