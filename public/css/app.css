@@ -138,17 +138,19 @@
 .c-plant-list__item:hover .c-plant-list__detail {
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
   border-color: #99cc99;
+  transition: 0.3s border ease-in-out, 0.3s box-shadow ease-in-out;
 }
 
 .c-plant-list__item:hover .c-plant-list__image {
   border-color: #99cc99;
+  transition: 0.3s border ease-in-out, 0.3s box-shadow ease-in-out;
 }
 
 .c-plant-list__detail {
   flex: 1 1 auto;
   border: 1px solid #ddd;
-  transition: 0.3s all ease-in-out;
   border-radius: 8px;
+  transition: 0.3s box-shadow ease-in-out;
 }
 
 .c-plant-list__content {
@@ -164,7 +166,7 @@
 
 .c-plant-list__stock {
   flex: 0 0 200px;
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 0 8px 0;
   border-left: 1px solid #ddd;
   padding: 8px 16px;
   background-color: #fff;
@@ -188,10 +190,10 @@
 
 .c-plant-list__image {
   border-radius: 100%;
-  border: 3px solid transparent;
-  transition: 0.3s border ease-in-out;
+  border: 3px solid #ddd;
   height: 128px;
   width: 128px;
+  transition: 0.3s box-shadow ease-in-out;
 }
 
 .c-plant-list__tag {

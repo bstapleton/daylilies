@@ -16,10 +16,12 @@
         .c-plant-list__detail {
             @include shadow-6dp();
             border-color: $brandLight;
+            transition: 0.3s border ease-in-out, 0.3s box-shadow ease-in-out;
         }
 
         .c-plant-list__image {
             border-color: $brandLight;
+            transition: 0.3s border ease-in-out, 0.3s box-shadow ease-in-out;
         }
     }
 }
@@ -27,8 +29,8 @@
 .c-plant-list__detail {
     flex: 1 1 auto;
     border: 1px solid $borderColour;
-    transition: 0.3s all ease-in-out;
     border-radius: $defaultUnit;
+    transition: 0.3s box-shadow ease-in-out;
 }
 
 .c-plant-list__content {
@@ -44,7 +46,7 @@
 
 .c-plant-list__stock {
     flex: 0 0 200px;
-    border-radius: 0 $defaultUnit $defaultUnit 0;
+    border-radius: 0 0 $defaultUnit 0;
     border-left: 1px solid $borderColour;
     padding: $defaultUnit ($defaultUnit * 2);
     background-color: $cardBackgroundColour;
@@ -68,10 +70,10 @@
 
 .c-plant-list__image {
     border-radius: 100%;
-    border: 3px solid transparent;
-    transition: 0.3s border ease-in-out;
+    border: 3px solid $borderColour;
     height: 128px;
     width: 128px;
+    transition: 0.3s box-shadow ease-in-out;
 }
 
 .c-plant-list__tag {
