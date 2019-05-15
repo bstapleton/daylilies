@@ -4,11 +4,8 @@
 }
 
 .c-plant-list__item {
-    border: 1px solid $borderColour;
     padding: 0;
     border-radius: $defaultUnit;
-    background-color: $cardBackgroundColour;
-    transition: 0.3s box-shadow ease-in-out;
     max-width: 1000px;
 
     &:not(:last-child) {
@@ -16,17 +13,33 @@
     }
 
     &:hover {
-        @include shadow-6dp();
+        .c-plant-list__detail {
+            @include shadow-6dp();
+            border-color: $brandLight;
+        }
+
+        .c-plant-list__image {
+            border-color: $brandLight;
+        }
     }
 }
 
 .c-plant-list__detail {
     flex: 1 1 auto;
+    border: 1px solid $borderColour;
+    transition: 0.3s all ease-in-out;
+    border-radius: $defaultUnit;
+}
+
+.c-plant-list__content {
+    border-radius: 0 0 0 $defaultUnit;
 }
 
 .c-plant-list__description {
     flex: 1 1 auto;
     padding: $defaultUnit ($defaultUnit * 2);
+    background-color: $cardBackgroundColour;
+    border-radius: 0 0 0 $defaultUnit;
 }
 
 .c-plant-list__stock {
@@ -34,6 +47,7 @@
     border-radius: 0 $defaultUnit $defaultUnit 0;
     border-left: 1px solid $borderColour;
     padding: $defaultUnit ($defaultUnit * 2);
+    background-color: $cardBackgroundColour;
 }
 
 .c-plant-list__title {
@@ -42,17 +56,22 @@
     margin: 0;
     padding: $defaultUnit ($defaultUnit * 2);
     background: $backgroundColour;
-    border-radius: 0 $defaultUnit 0 0;
+    border-radius: $defaultUnit $defaultUnit 0 0;
     color: $brandDark;
 }
 
 .c-plant-list__thumbnail {
     flex: 0 0 150px;
+    padding-top: $defaultUnit;
     max-height: 150px;
 }
 
 .c-plant-list__image {
-    border-radius: $defaultUnit 0 0 $defaultUnit;
+    border-radius: 100%;
+    border: 3px solid transparent;
+    transition: 0.3s border ease-in-out;
+    height: 128px;
+    width: 128px;
 }
 
 .c-plant-list__tag {

@@ -9,33 +9,10 @@
     <ul class="c-plant-list">
         @foreach($plants as $plant)
             <li class="h-list--unstyled c-plant-list__item">
-                <?php /*
-                <article class="h-flex">
-                    <div class="c-plant-list__thumbnail">
-                        <img class="c-plant-list__image" src="https://picsum.photos/id/2/150/150" alt="thing" />
-                    </div>
-                    <div class="c-plant-list__content">
-                        <h2 class="c-plant-list__title">{{$plant->name}}</h2>
-                        <p>{{$plant->description}}</p>
-                    </div>
-                    <div class="c-plant-list__stock">
-                        @if ($plant->in_stock)
-                            <p>In stock</p>
-                        @else
-                            <p>Out of stock</p>
-                        @endif
-                        {{$plant->price}}
-                    </div>
-                </article>
-                */ ?>
-
-
-
-
                 <article class="h-flex" itemscope itemtype="http://schema.org/Product">
                     <link itemprop="additionalType" href="http://www.productontology.org/id/Plant" />
                     <div class="c-plant-list__thumbnail">
-                        <img class="c-plant-list__image" itemprop="image" src="{{asset('images/thumbnails/' . $plant->slug . '.jpg')}}" alt="{{$plant->name}}" />
+                        <img class="c-plant-list__image" itemprop="image" src="{{asset('images/thumbnails/thumb-' . $plant->slug . '.jpg')}}" alt="{{$plant->name}}" />
                     </div>
                     <div class="c-plant-list__detail">
                         <h2 itemprop="name" class="c-plant-list__title">{{$plant->name}}</h2>
