@@ -1,0 +1,19 @@
+.c-card {
+    padding: $defaultUnit * 2;
+    margin-bottom: $defaultUnit * 2;
+    border-radius: $defaultUnit;
+
+    > p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.c-card--light {
+    background-color: $brandLight;
+    color: $brandDark;
+}
+
+.c-card--dark {
+    background-color: $brandDark;
+    color: $cardBackgroundColour;
+}

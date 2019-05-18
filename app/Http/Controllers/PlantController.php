@@ -95,7 +95,8 @@ class PlantController extends Controller
 
         return view('plants-list', [
             'plants' => $plants,
-            'category' => ucfirst($category) . ' daylilies',
+            'category' => $category,
+            'categoryTitle' => ucfirst($category) . ' daylilies',
             'title' => ucfirst($category) . ' daylilies',
             'metaDescription' => $metaDescription
         ]);
