@@ -1,7 +1,7 @@
 .l-body {
     font-family: $font-family-sans-serif;
     font-size: $font-size-base;
-    background-color: $backgroundColour;
+    background: $backgroundColour url('/images/noise.png');
     color: $defaultText;
     padding: 0;
     margin: 0;
