@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-    <h1>{{$plant->name}}</h1>
-    <p>{{$plant->description}}</p>
+    <h1>{{ $plant->name }}</h1>
+    <p>{{ $plant->description }}</p>
 @endsection
 
 @section('layout-footer')
