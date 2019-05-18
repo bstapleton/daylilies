@@ -16,12 +16,11 @@
         .c-plant-list__detail {
             @include shadow-6dp();
             border-color: $brandLight;
-            transition: 0.3s border ease-in-out, 0.3s box-shadow ease-in-out;
+            transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
         .c-plant-list__image {
-            border-color: $brandLight;
-            transition: 0.3s border ease-in-out, 0.3s box-shadow ease-in-out;
+            transform: rotate(5deg);
         }
     }
 }
@@ -30,11 +29,14 @@
     flex: 1 1 auto;
     border: 1px solid $borderColour;
     border-radius: $defaultUnit;
-    transition: 0.3s box-shadow ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .c-plant-list__content {
     border-radius: 0 0 0 $defaultUnit;
+    flex: 1 0 100%;
 }
 
 .c-plant-list__description {
@@ -53,27 +55,28 @@
 }
 
 .c-plant-list__title {
+    $lrPadding: $defaultUnit * 2;
     font-size: 1.2rem;
     font-weight: normal;
     margin: 0;
-    padding: $defaultUnit ($defaultUnit * 2);
+    padding: $defaultUnit $lrPadding;
     background: $backgroundColour;
     border-radius: $defaultUnit $defaultUnit 0 0;
     color: $brandDark;
+    flex: 1 0 calc(100% - (#{$lrPadding} * 2));
 }
 
 .c-plant-list__thumbnail {
-    flex: 0 0 150px;
-    padding-top: $defaultUnit;
-    max-height: 150px;
+    flex: 0 0 200px;
+    padding-right: $defaultUnit * 2;
 }
 
 .c-plant-list__image {
-    border-radius: 100%;
-    border: 3px solid $borderColour;
-    height: 128px;
-    width: 128px;
-    transition: 0.3s box-shadow ease-in-out;
+    width: $defaultUnit * 23;
+    border-image: url('/images/stamp-border.svg') 8 round;
+    border-width: $defaultUnit;
+    border-style: solid;
+    transition: transform 0.2s ease-in-out 0.1s;
 }
 
 .c-plant-list__tag {
