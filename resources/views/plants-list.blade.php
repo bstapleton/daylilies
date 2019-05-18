@@ -12,7 +12,7 @@
                 <article class="h-flex" itemscope itemtype="http://schema.org/Product">
                     <link itemprop="additionalType" href="http://www.productontology.org/id/Plant" />
                     <div class="c-plant-list__thumbnail">
-                        <a href="{{ URL::route('view-plant', $plant->slug) }}" title="View details for {{ $plant->name }}"><img class="c-plant-list__image" itemprop="image" src="{{ asset('images/thumbnails/' . $plant->slug . '.jpg') }}" alt="{{ $plant->name }}" /></a>
+                        <a href="{{ URL::route('view-plant', $plant->slug) }}" title="View details for {{ $plant->name }}"><img class="c-plant-list__image" itemprop="image" loading="lazy" src="{{ asset('images/thumbnails/' . $plant->slug . '.jpg') }}" alt="{{ $plant->name }}" /></a>
                     </div>
                     <div class="c-plant-list__detail">
                         <h2 itemprop="name" class="c-plant-list__title">{{ $plant->name }}</h2>
@@ -82,7 +82,7 @@
                                 </p>
                                 <a href="{{ URL::route('view-plant', $plant->slug) }}" title="View details for {{ $plant->name }}" class="c-button c-button--default">View Details</a>
                                 @if ($plant->in_stock == true)
-                                    <a href="#" class="c-button c-button--success">Add to order</a>
+{{--                                    <a href="#" class="c-button c-button--success">Add to order</a>--}}
                                 @endif
                             </div>
                         </div>

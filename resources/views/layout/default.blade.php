@@ -10,6 +10,10 @@
         <title>A La Carte Daylilies</title>
     @endisset
 
+    @isset ($metaDescription)
+        <meta name="description" content="{{ $metaDescription }}">
+    @endisset
+    <meta name="theme-color" content="#006600">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>

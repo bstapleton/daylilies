@@ -1,6 +1,6 @@
 .c-button {
     border-radius: $defaultUnit * 0.5;
-    padding: ($defaultUnit * 0.5) $defaultUnit;
+    padding: $defaultUnit ($defaultUnit * 2);
     text-decoration: none;
 }
 

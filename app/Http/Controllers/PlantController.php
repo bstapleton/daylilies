@@ -78,7 +78,27 @@ class PlantController extends Controller
             $plant->flowerInCm = $this->convertInchesToCentimetres($plant->flower_size);
         }
 
-        return view('plants-list', ['plants' => $plants, 'category' => ucfirst($category) . ' daylilies', 'title' => ucfirst($category) . ' daylilies']);
+        switch ($category) {
+            case 'large':
+                $metaDescription = 'Large flowered daylilies are the most popular and well-known category of Hemerocallis; defined by a flower size of 4.5 inches and above';
+                break;
+            case 'small':
+                $metaDescription = 'Small flowered daylilies have attracted increasing attention since being officially recognised. They are defined by a flower size between 3 and 4.5 inches';
+                break;
+            case 'miniature':
+                $metaDescription = 'Miniature flowered daylilies make up for their small bloom size (anything under 3 inches) with more flowers per plant. Ideal for where space is at a premium';
+                break;
+            case 'spider':
+                $metaDescription = 'Spider daylilies here are grouped with unusual forms. They tend to have a sculptured look and can be an interesting choice in garden designs';
+                break;
+        }
+
+        return view('plants-list', [
+            'plants' => $plants,
+            'category' => ucfirst($category) . ' daylilies',
+            'title' => ucfirst($category) . ' daylilies',
+            'metaDescription' => $metaDescription
+        ]);
     }
 
     /**
