@@ -7,6 +7,9 @@
 .h-flex--row {
   flex-direction: row; }
 
+.h-flex-wrap {
+  flex-wrap: wrap; }
+
 .h-list--unstyled {
   list-style: none; }
 
@@ -72,6 +75,31 @@
 .l-page-content__title {
   margin-top: 0;
   font-size: 2.5rem; }
+
+.l-plant-view-header {
+  flex: 1 0 100%;
+  padding: 16px;
+  color: #006600;
+  font-size: 1.2rem; }
+
+.l-plant-view-header__title {
+  margin: 0; }
+
+.l-plant-view-content {
+  padding: 48px;
+  flex: 1 1 auto;
+  background-color: #444; }
+
+.l-plant-view-sidebar {
+  flex: 0 1 300px;
+  max-width: 300px;
+  background: #f3f3f3 url("/images/noise.png") repeat;
+  background-size: 100px; }
+
+.l-plant-view-footer {
+  flex: 1 0 100%;
+  padding: 16px;
+  font-size: 0.8rem; }
 
 .c-button {
   border-radius: 4px;
@@ -193,7 +221,10 @@
 .c-card {
   padding: 16px;
   margin-bottom: 16px;
-  border-radius: 8px; }
+  border-radius: 8px;
+  max-width: calc(1000px - (8px * 4)); }
+  .c-card :first-child {
+    margin-top: 0; }
   .c-card > p:last-child {
     margin-bottom: 0; }
 
@@ -204,3 +235,22 @@
 .c-card--dark {
   background-color: #006600;
   color: #fff; }
+
+.c-lightbox {
+  align-items: center;
+  margin: 0; }
+
+.c-lightbox__image {
+  border-radius: 5px;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 16px; }
+
+.c-lightbox__caption {
+  border-radius: 5px;
+  background: #f3f3f3;
+  padding: 16px;
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: calc(1000px - (8px * 4));
+  width: 100%; }

@@ -11,8 +11,13 @@
 @import 'layout/site-footer';
 @import 'layout/sidebar-navigation';
 @import 'layout/page-content';
+@import 'layout/plant-view-header';
+@import 'layout/plant-view-content';
+@import 'layout/plant-view-sidebar';
+@import 'layout/plant-view-footer';
 
 @import 'components/button';
 @import 'components/plant-list';
 @import 'components/pagination';
 @import 'components/card';
+@import 'components/lightbox';

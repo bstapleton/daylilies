@@ -1,0 +1,21 @@
+.c-lightbox {
+    align-items: center;
+    margin: 0;
+}
+
+.c-lightbox__image {
+    border-radius: 5px;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: $defaultUnit * 2;
+}
+
+.c-lightbox__caption {
+    border-radius: 5px;
+    background: $backgroundColour;
+    padding: $defaultUnit * 2;
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: calc(1000px - (#{$defaultUnit} * 4));
+    width: 100%;
+}

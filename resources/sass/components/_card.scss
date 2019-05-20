@@ -2,6 +2,11 @@
     padding: $defaultUnit * 2;
     margin-bottom: $defaultUnit * 2;
     border-radius: $defaultUnit;
+    max-width: calc(1000px - (#{$defaultUnit} * 4));
+
+    :first-child {
+        margin-top: 0;
+    }
 
     > p:last-child {
         margin-bottom: 0;

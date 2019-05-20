@@ -8,12 +8,3 @@
     <p>It should be noted that entries on the website are only those for which we currently have photographs. If you can't find what you are after, please make an enquiry by going to the <a href="{{ URL::route('contact-us') }}">Contact Us</a> page.</p>
     <p>All photographs on this website were taken in our garden and accurately show how daylilies grow in an english climate. Please do not reuse these images without permission.</p>
 </div>
-
-<div class="c-card c-card--light">
-    <h2>How to identify the plants</h2>
-    <ul>
-        <li>Entries marked with a star icon are new on the website.</li>
-        <li>Entries with a happy smiling face are in stock</li>
-        <li>Entries with an unhappy frowning face are currently out of stock</li>
-    </ul>
-</div>
