@@ -1,0 +1,28 @@
+.c-key-value-list__item {
+    border: 1px solid $borderColour;
+    border-radius: $defaultUnit * 0.5;
+    margin-bottom: $defaultUnit;
+    transition: border 0.1s ease-in-out;
+
+    &:hover {
+        border-color: $brandLight;
+    }
+}
+
+.c-key-value-list__key {
+    display: block;
+    flex: 1 0 calc(40% - (#{$defaultUnit} * 2));
+    padding: $defaultUnit;
+    color: $brandDark;
+    background-color: $borderColour;
+    text-align: right;
+    border-radius: ($defaultUnit * 0.5) 0 0 ($defaultUnit * 0.5);
+}
+
+.c-key-value-list__value {
+    display: block;
+    padding: $defaultUnit;
+    flex: 1 0 calc(60% - (#{$defaultUnit} * 2));
+    background-color: $cardBackgroundColour;
+    border-radius: 0 ($defaultUnit * 0.5) ($defaultUnit * 0.5) 0;
+}

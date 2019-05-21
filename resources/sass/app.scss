@@ -2,10 +2,15 @@
 @import 'variables';
 @import 'mixins.scss';
 
+// Helpers
 @import 'helpers/flex';
 @import 'helpers/list';
 @import 'helpers/heading';
+@import 'helpers/margin';
+@import 'helpers/padding';
+@import 'helpers/anchor';
 
+// Layout
 @import 'layout/body';
 @import 'layout/site-header';
 @import 'layout/site-footer';
@@ -16,8 +21,12 @@
 @import 'layout/plant-view-sidebar';
 @import 'layout/plant-view-footer';
 
+// Components
 @import 'components/button';
 @import 'components/plant-list';
 @import 'components/pagination';
 @import 'components/card';
 @import 'components/lightbox';
+@import 'components/tag';
+@import 'components/stats-table';
+@import 'components/key-value-list';

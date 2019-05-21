@@ -26,6 +26,15 @@
   font-family: "Great Vibes", cursive;
   font-weight: normal; }
 
+.h-no-margin {
+  margin: 0; }
+
+.h-no-padding {
+  padding: 0; }
+
+.h-anchor--branded {
+  color: #006600; }
+
 .l-body {
   font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;
@@ -77,7 +86,6 @@
   font-size: 2.5rem; }
 
 .l-plant-view-header {
-  flex: 1 0 100%;
   padding: 16px;
   color: #006600;
   font-size: 1.2rem; }
@@ -94,10 +102,10 @@
   flex: 0 1 300px;
   max-width: 300px;
   background: #f3f3f3 url("/images/noise.png") repeat;
-  background-size: 100px; }
+  background-size: 100px;
+  padding: 0 16px; }
 
 .l-plant-view-footer {
-  flex: 1 0 100%;
   padding: 16px;
   font-size: 0.8rem; }
 
@@ -183,18 +191,6 @@
   border-style: solid;
   transition: transform 0.2s ease-in-out 0.1s; }
 
-.c-plant-list__tag {
-  height: 24px;
-  line-height: 24px;
-  padding: 4px 8px;
-  flex: 0 1 auto;
-  border-radius: 8px;
-  background-color: #006600;
-  color: #f3f3f3;
-  transition: background-color 0.1s ease-in-out; }
-  .c-plant-list__tag:hover {
-    background-color: green; }
-
 .c-pagination__link {
   display: block;
   height: 40px;
@@ -254,3 +250,46 @@
   text-align: center;
   max-width: calc(1000px - (8px * 4));
   width: 100%; }
+
+.c-tag {
+  height: 24px;
+  line-height: 24px;
+  padding: 4px 8px;
+  flex: 0 1 auto;
+  border-radius: 8px;
+  background-color: #006600;
+  color: #f3f3f3;
+  transition: background-color 0.1s ease-in-out; }
+  .c-tag:hover {
+    background-color: green; }
+
+.c-stats-table {
+  border: 1px solid #ddd;
+  border-radius: 3px; }
+  .c-stats-table th,
+  .c-stats-table td {
+    padding: 8px; }
+
+.c-key-value-list__item {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  transition: border 0.1s ease-in-out; }
+  .c-key-value-list__item:hover {
+    border-color: #99cc99; }
+
+.c-key-value-list__key {
+  display: block;
+  flex: 1 0 calc(40% - (8px * 2));
+  padding: 8px;
+  color: #006600;
+  background-color: #ddd;
+  text-align: right;
+  border-radius: 4px 0 0 4px; }
+
+.c-key-value-list__value {
+  display: block;
+  padding: 8px;
+  flex: 1 0 calc(60% - (8px * 2));
+  background-color: #fff;
+  border-radius: 0 4px 4px 0; }

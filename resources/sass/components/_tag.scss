@@ -1,0 +1,14 @@
+.c-tag {
+    height: $defaultUnit * 3;
+    line-height: $defaultUnit * 3;
+    padding: ($defaultUnit * 0.5) $defaultUnit;
+    flex: 0 1 auto;
+    border-radius: $defaultUnit;
+    background-color: $brandDark;
+    color: $backgroundColour;
+    transition: background-color 0.1s ease-in-out;
+
+    &:hover {
+        background-color: lighten($brandDark, 5%);
+    }
+}

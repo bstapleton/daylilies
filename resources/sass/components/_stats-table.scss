@@ -1,0 +1,9 @@
+.c-stats-table {
+    border: 1px solid $borderColour;
+    border-radius: 3px;
+
+    th,
+    td {
+        padding: $defaultUnit;
+    }
+}
