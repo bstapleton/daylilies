@@ -18,23 +18,26 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="l-body">
-    <div class="h-flex h-flex-wrap">
+    <div class="h-flex h-flex--column">
         @section('layout-header')
             <div class="l-plant-view-header">
                 <h1 class="l-plant-view-header__title h-heading">A La Carte Daylilies</h1>
             </div>
         @show
 
-        <div class="l-plant-view-content">
-            @section('content')
-                @yield('content')
-            @show
-        </div>
+        <div class="h-flex h-flex-wrap" itemscope itemtype="http://schema.org/Product">
+            <link itemprop="additionalType" href="http://www.productontology.org/id/Plant" />
+            <div class="l-plant-view-content">
+                @section('content')
+                    @yield('content')
+                @show
+            </div>
 
-        <div class="l-plant-view-sidebar">
-            @section('sidebar')
-                @yield('sidebar')
-            @show
+            <div class="l-plant-view-sidebar">
+                @section('sidebar')
+                    @yield('sidebar')
+                @show
+            </div>
         </div>
 
         @section('layout-footer')

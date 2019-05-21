@@ -99,8 +99,8 @@
   background-color: #444; }
 
 .l-plant-view-sidebar {
-  flex: 0 1 300px;
-  max-width: 300px;
+  flex: 0 1 350px;
+  max-width: 350px;
   background: #f3f3f3 url("/images/noise.png") repeat;
   background-size: 100px;
   padding: 0 16px; }

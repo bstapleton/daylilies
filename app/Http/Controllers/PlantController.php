@@ -43,17 +43,20 @@ class PlantController extends Controller
     public function listNew() {
         $currentYear = date('Y');
 
-        // todo: smarter listings - only get previous year if there's less than 20 new ones for the current year
-
-        $thisYear = Plant::where('year_added', $currentYear)
+        $plants = Plant::where('year_added', $currentYear)
             ->orderBy('name', 'asc')
             ->get();
 
-        $lastYear = Plant::where('year_added', $currentYear - 1)
-            ->orderBy('name', 'asc')
-            ->get();
+        if ($plants->count() < 1)
+        {
+            $plants = Plant::where('year_added', $currentYear - 1)
+                ->orderBy('name', 'asc')
+                ->get();
+        }
 
-        return view('plants-new', ['thisYear' => $thisYear, 'lastYear' => $lastYear]);
+        return view('plants-new', [
+            'plants' => $plants
+        ]);
     }
 
     /**
@@ -117,7 +120,12 @@ class PlantController extends Controller
             return view('error', ['category' => 'Foliage Request', 'request' => $foliage]);
         }
 
-        return view('plants-list', ['plants' => $plants, 'category' => 'Daylilies with ' . $foliage . ' foliage', 'title' => ucfirst($foliage) . ' daylilies']);
+        return view('plants-list', [
+            'plants' => $plants,
+            'category' => 'Daylilies with ' . $foliage . ' foliage',
+            'categoryTitle' => ucfirst($foliage) . ' daylilies',
+            'title' => ucfirst($foliage) . ' daylilies'
+        ]);
     }
 
     /**
@@ -135,7 +143,12 @@ class PlantController extends Controller
             return view('error', ['category' => 'Season Request', 'request' => $season]);
         }
 
-        return view('plants-list', ['plants' => $plants, 'category' => 'Daylilies that flower ' . $season . ' season', 'title' => ucfirst($season) . ' season daylilies']);
+        return view('plants-list', [
+            'plants' => $plants,
+            'category' => 'Daylilies that flower ' . str_replace('-', ' ', $season),
+            'categoryTitle' => ucfirst(str_replace('-', ' ', $season)) . ' daylilies',
+            'title' => ucfirst(str_replace('-', ' ', $season)) . ' daylilies'
+        ]);
     }
 
     /**

@@ -40,22 +40,22 @@
                                     {{ $plant->description }}
                                 </p>
                                 <ul class="h-list--unstyled h-list--no-spacing h-flex">
-                                    <li class="h-list--horizontal__item c-plant-list__tag" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+                                    <li class="h-list--horizontal__item c-tag" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
                                         <meta itemprop="name" content="Ploidy">
                                         <span itemprop="value">{{ $plant->genome->name }}</span>
                                     </li>
-                                    <li class="h-list--horizontal__item c-plant-list__tag" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+                                    <li class="h-list--horizontal__item c-tag" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
                                         <meta itemprop="name" content="Foliage type">
                                         <span itemprop="value">{{ $plant->foliage->name }}</span>
                                     </li>
                                     @foreach ($plant->seasons as $season)
-                                        <li class="h-list--horizontal__item c-plant-list__tag" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+                                        <li class="h-list--horizontal__item c-tag" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
                                             <meta itemprop="name" content="Bloom time">
                                             <span itemprop="value">{{ $season->name }}</span>
                                         </li>
                                     @endforeach
                                 </ul>
-                                <table class="stats">
+                                <table class="c-stats-table">
                                     <tr itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
                                         <th itemprop="name">Height</th>
                                         <td>
