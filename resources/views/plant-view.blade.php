@@ -12,12 +12,16 @@
 @endsection
 
 @section('sidebar')
-    <h1 itemprop="name">{{ $plant->name }}</h1>
+    <h1 itemprop="name" class="l-plant-view-sidebar__title">{{ $plant->name }}</h1>
     <meta itemprop="sku" content="{{ $plant->category->name }}{{ $plant->id }}">
     <meta itemprop="mpn" content="{{ $plant->category->name }}{{ $plant->id }}">
     <p itemprop="description">{{ $plant->description }}</p>
     <h2>Details:</h2>
     <ul class="c-key-value-list h-list--unstyled h-no-padding">
+        <li class="h-flex c-key-value-list__item" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+            <span class="c-key-value-list__key" itemprop="name">Category</span>
+            <a href="{{ URL::route('plants.category', strtolower($plant->category->name)) }}" class="c-key-value-list__value h-anchor--branded" itemprop="value">{{ $plant->category->name }} flowered</a>
+        </li>
         <li class="h-flex c-key-value-list__item" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
             <span class="c-key-value-list__key" itemprop="name">Registered</span>
             <span class="c-key-value-list__value" itemprop="value">{{ $plant->year_bred }}</span>
@@ -62,18 +66,18 @@
         </li>
         <li class="h-flex c-key-value-list__item" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
             <span class="c-key-value-list__key" itemprop="name">Foliage type</span>
-            <a href="{{ URL::route('foliage', strtolower($plant->foliage->name)) }}" class="c-key-value-list__value h-anchor--branded" itemprop="value">{{ $plant->foliage->name }}</a>
+            <a href="{{ URL::route('plants.foliage', strtolower($plant->foliage->name)) }}" class="c-key-value-list__value h-anchor--branded" itemprop="value">{{ $plant->foliage->name }}</a>
         </li>
         <li class="h-flex c-key-value-list__item" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
             <span class="c-key-value-list__key" itemprop="name">Bloom time</span>
             @foreach ($plant->seasons as $season)
                 @if ($loop->count == 1)
-                    <a href="{{ URL::route('season', strtolower(str_replace(' ', '-', $season->name))) }}" class="c-key-value-list__value h-anchor--branded" itemprop="value" title="View all daylilies that bloom {{ $season->name }}">{{ $season->name }}</a>
+                    <a href="{{ URL::route('plants.season', strtolower(str_replace(' ', '-', $season->name))) }}" class="c-key-value-list__value h-anchor--branded" itemprop="value" title="View all daylilies that bloom {{ $season->name }}">{{ $season->name }}</a>
                 @else
                     @if ($loop->iteration == 1)
                     <span class="c-key-value-list__value" itemprop="value">
                     @endif
-                        <a class="h-anchor--branded" href="{{ URL::route('season', strtolower(str_replace(' ', '-', $season->name))) }}" title="View all daylilies that bloom {{ $season->name }}">{{ $season->name }}</a>{{ $loop->remaining > 0 ? ', ' : null }}
+                        <a class="h-anchor--branded" href="{{ URL::route('plants.season', strtolower(str_replace(' ', '-', $season->name))) }}" title="View all daylilies that bloom {{ $season->name }}">{{ $season->name }}</a>{{ $loop->remaining > 0 ? ', ' : null }}
                     @if ($loop->remaining == 0)
                     </span>
                     @endif

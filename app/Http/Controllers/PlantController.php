@@ -3,21 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Plant;
-use Intervention\Image\Facades\Image;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
 
 /**
  * Class PlantController
  * @package App\Http\Controllers
  */
-class PlantController extends Controller
+class PlantController extends BaseController
 {
     /**
      * Get all plants available on the website.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     public function index() {
-        $plants = Plant::paginate(20);
+        $plants = Plant::paginate(self::LIST_RESULTS);
 
         return view('plants-list', ['plants' => $plants, 'category' => 'All daylilies']);
     }
@@ -26,7 +27,7 @@ class PlantController extends Controller
      * View an individual plant.
      *
      * @param string $slug
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     public function view(string $slug) {
         $plant = Plant::where('slug', $slug)
@@ -38,7 +39,7 @@ class PlantController extends Controller
     /**
      * Get all plants that hve been added tot he website in the current or previous year.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     public function listNew() {
         $currentYear = date('Y');
@@ -63,12 +64,14 @@ class PlantController extends Controller
      * Get all plants for the requested category. Redirect to an error page if the request is invalid.
      *
      * @param string $category
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     public function listCategory(string $category) {
+        $paginationCount = request('display') == 'grid' ? self::GRID_RESULTS : self::LIST_RESULTS;
+
         $plants = Plant::whereHas('category', function($query) use ($category) {
             $query->whereName(ucfirst($category));
-        })->orderBy('name')->paginate(20);
+        })->orderBy('name')->paginate($paginationCount);
 
         if ($plants->count() < 1)
         {
@@ -96,7 +99,9 @@ class PlantController extends Controller
                 break;
         }
 
-        return view('plants-list', [
+        $view = request('display') == 'grid' ? 'plants-grid' : 'plants-list';
+
+        return view($view, [
             'plants' => $plants,
             'category' => $category,
             'categoryTitle' => ucfirst($category) . ' daylilies',
@@ -109,12 +114,12 @@ class PlantController extends Controller
      * Get all plants for the requested foliage type. Redirect to an error if not a valid foliage tag.
      *
      * @param string $foliage
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     public function listFoliage(string $foliage) {
         $plants = Plant::whereHas('foliage', function($query) use ($foliage) {
             $query->whereName(ucfirst($foliage));
-        })->orderBy('name', 'asc')->paginate(20);
+        })->orderBy('name', 'asc')->paginate(self::LIST_RESULTS);
 
         if ($plants->count() < 1) {
             return view('error', ['category' => 'Foliage Request', 'request' => $foliage]);
@@ -132,12 +137,12 @@ class PlantController extends Controller
      * Get all plants for the requested season. Redirect to an error if not a valid season tag.
      *
      * @param string $season
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     public function listSeason(string $season) {
         $plants = Plant::whereHas('seasons', function($query) use ($season) {
             $query->whereName(ucfirst(str_replace('-', ' ', $season)));
-        })->orderBy('name', 'asc')->paginate(20);
+        })->orderBy('name', 'asc')->paginate(self::LIST_RESULTS);
 
         if ($plants->count() < 1) {
             return view('error', ['category' => 'Season Request', 'request' => $season]);
@@ -149,14 +154,5 @@ class PlantController extends Controller
             'categoryTitle' => ucfirst(str_replace('-', ' ', $season)) . ' daylilies',
             'title' => ucfirst(str_replace('-', ' ', $season)) . ' daylilies'
         ]);
-    }
-
-    /**
-     * @param $input float Number to convert.
-     * @return float Inch value converted into centimetres.
-     */
-    private function convertInchesToCentimetres($input)
-    {
-        return number_format(($input * 2.54), 2);
     }
 }
