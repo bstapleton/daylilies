@@ -15,7 +15,7 @@
                 <article class="h-flex" itemscope itemtype="http://schema.org/Product">
                     <link itemprop="additionalType" href="http://www.productontology.org/id/Plant" />
                     <div class="c-plant-list__thumbnail">
-                        <a href="{{ URL::route('view-plant', $plant->slug) }}" title="View details for {{ $plant->name }}"><img class="c-plant-list__image" itemprop="image" loading="lazy" src="{{ asset('images/thumbnails/' . $plant->slug . '.jpg') }}" alt="{{ $plant->name }}" /></a>
+                        <a href="{{ URL::route('view-plant', $plant->slug) }}" title="View details for {{ $plant->name }}"><img class="c-plant-list__image" itemprop="image" loading="lazy" src="{{ asset('images/thumbnails/' . $plant->slug . '.jpg') }}" alt="" /></a>
                     </div>
                     <div class="c-plant-list__detail">
                         <h2 itemprop="name" class="c-plant-list__title">{{ $plant->name }}</h2>
