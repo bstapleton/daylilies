@@ -1,6 +1,9 @@
 // Variables
 @import 'variables';
-@import 'mixins.scss';
+
+// Mixins
+@import 'mixins/shadows';
+@import 'mixins/responsive';
 
 // Helpers
 @import 'helpers/flex';
@@ -24,6 +27,7 @@
 // Components
 @import 'components/button';
 @import 'components/plant-list';
+@import 'components/plant-grid';
 @import 'components/pagination';
 @import 'components/card';
 @import 'components/lightbox';

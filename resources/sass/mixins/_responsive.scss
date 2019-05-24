@@ -1,0 +1,59 @@
+// Mixins that behave as selectors for grid sizes
+@mixin xs() {
+    @media only screen and (max-width: $screen-xs-max) {
+        @content;
+    }
+}
+@mixin sm() {
+    @media only screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+        @content;
+    }
+}
+@mixin md() {
+    @media only screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+        @content;
+    }
+}
+@mixin lg() {
+    @media only screen and (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+        @content;
+    }
+}
+@mixin xl() {
+    @media only screen and (min-width: $screen-xl-min) {
+        @content;
+    }
+}
+
+@mixin sm-up() {
+    @media only screen and (min-width: $screen-sm-min) {
+        @content;
+    }
+}
+@mixin md-up() {
+    @media only screen and (min-width: $screen-md-min) {
+        @content;
+    }
+}
+@mixin lg-up() {
+    @media only screen and (min-width: $screen-lg-min) {
+        @content;
+    }
+}
+@mixin xl-up() {
+    @media only screen and (min-width: $screen-xl-min) {
+        @content;
+    }
+}
+
+@mixin sm-down() {
+    @media only screen and (max-width: $screen-sm-max) {
+        @content;
+    }
+}
+
+@mixin md-down() {
+    @media only screen and (max-width: $screen-md-max) {
+        @content;
+    }
+}
