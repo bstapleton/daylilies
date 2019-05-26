@@ -6,9 +6,11 @@
 
 @section('content')
     <h1 class="h-heading l-page-content__title">{{ $categoryTitle }}</h1>
-    @if ($category == 'large')
-        @include('partials/introduction_large')
-    @endif
+    @isset($category)
+        @if ($category == 'large')
+            @include('partials/introduction_large')
+        @endif
+    @endisset
     <div class="c-plant-grid h-flex h-flex-wrap">
         @foreach($plants as $plant)
             <article class="h-list--unstyled c-plant-grid__item h-flex h-flex--column" itemscope itemtype="http://schema.org/Product">

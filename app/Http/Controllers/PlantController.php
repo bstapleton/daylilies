@@ -18,9 +18,9 @@ class PlantController extends BaseController
      * @return Factory|View
      */
     public function index() {
-        $plants = Plant::paginate(self::LIST_RESULTS);
+        $plants = Plant::paginate(self::GRID_RESULTS);
 
-        return view('plants-list', ['plants' => $plants, 'category' => 'All daylilies']);
+        return view('plants-grid', ['plants' => $plants, 'category' => 'All daylilies']);
     }
 
     /**
@@ -32,6 +32,9 @@ class PlantController extends BaseController
     public function view(string $slug) {
         $plant = Plant::where('slug', $slug)
             ->first();
+
+        $plant->heightInCm = $this->convertInchesToCentimetres($plant->height);
+        $plant->flowerInCm = $this->convertInchesToCentimetres($plant->flower_size);
 
         return view('plant-view', ['plant' => $plant, 'title' => $plant->name]);
     }
@@ -46,17 +49,20 @@ class PlantController extends BaseController
 
         $plants = Plant::where('year_added', $currentYear)
             ->orderBy('name', 'asc')
-            ->get();
+            ->paginate(self::GRID_RESULTS);
 
         if ($plants->count() < 1)
         {
             $plants = Plant::where('year_added', $currentYear - 1)
                 ->orderBy('name', 'asc')
-                ->get();
+                ->paginate(self::GRID_RESULTS);
         }
 
-        return view('plants-new', [
-            'plants' => $plants
+        return view('plants-grid', [
+            'plants' => $plants,
+            'categoryTitle' => 'Newest daylilies in the website catalogue',
+            'title' => 'Newest additions',
+            'metaDescription' => 'Latest daylily additions to the website catalogue across all categories.'
         ]);
     }
 
