@@ -1,0 +1,50 @@
+.c-search-list {
+    z-index: 1000;
+    position: absolute;
+    top: 115px;
+    width: 300px;
+    max-width: 100%;
+    margin: 0 calc(50% - 150px);
+
+    @include md-up() {
+        width: 450px;
+        margin: 0 calc(50% - 240px);
+    }
+}
+
+.c-search-list__item {
+    &:first-child {
+        .c-search-list__link {
+            border-radius: ($defaultUnit * 0.5) ($defaultUnit * 0.5) 0 0;
+        }
+    }
+
+    &:last-child {
+        .c-search-list__link {
+            border-radius: 0 0 ($defaultUnit * 0.5) ($defaultUnit * 0.5);
+        }
+    }
+
+    &:not(:first-child) {
+        .c-search-list__link {
+            border-top: none;
+        }
+    }
+}
+
+.c-search-list__link {
+    border: 1px solid $borderColour;
+    background: $cardBackgroundColour;
+    padding: $defaultUnit ($defaultUnit * 2);
+    color: $brandDark;
+    transition: border 0.1s ease-in-out;
+
+    &:hover {
+        background-color: $borderColour;
+        border-left: ($defaultUnit * 0.5) solid $brandDark;
+    }
+}
+
+.c-search-list__name {
+    flex: 1 0 auto;
+}

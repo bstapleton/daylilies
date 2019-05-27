@@ -16,6 +16,7 @@
     <meta name="theme-color" content="#006600">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
 </head>
 <body class="l-body">
     @section('layout-header')
@@ -26,6 +27,7 @@
                 <input type="search" name="search" id="search" class="l-site-header__field c-field h-margin-left__default">
                 <input type="submit" class="c-button c-button--default h-margin-left__default">
             </form>
+            <ul class="h-list--unstyled h-no-padding c-search-list" id="search-list" style="display: none;"></ul>
         </div>
     @show
 
@@ -71,5 +73,35 @@
             default footer here
         </div>
     @show
+
+    <script type="text/javascript">
+        $('#search').on('focus', function() {
+            if (this.value.length > 0) {
+                this.value = '';
+            }
+        });
+
+        $('#search').on('keyup', function() {
+            $value = $(this).val();
+            $.ajax({
+                type : 'get',
+                url : '{{ URL::to('search') }}',
+                data:{'search':$value},
+                success:function(data){
+                    $('#search-list').show();
+                    $('#search-list').html(data);
+                }
+            });
+        });
+
+        $('#search').on('blur', function() {
+            setTimeout(function() {
+                $('#search-list').css('display', 'none');
+            }, 100)
+        });
+    </script>
+    <script type="text/javascript">
+        $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+    </script>
 </body>
 </html>

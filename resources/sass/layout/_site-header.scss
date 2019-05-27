@@ -3,11 +3,11 @@
     background-color: $brandLight;
     color: $brandDark;
     border-bottom: $defaultUnit solid $brandDark;
-    font-size: 1.4rem;
     margin-bottom: $defaultUnit * 4;
 }
 
 .l-site-header__title {
+    font-size: 2rem;
     text-align: center;
     margin: 0 0 $defaultUnit;
 }

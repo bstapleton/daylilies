@@ -5,10 +5,18 @@
 @endsection
 
 @section('content')
-    <h1 class="h-heading l-page-content__title">{{ $categoryTitle }}</h1>
+    <h1 class="h-heading l-page-content__title">
+    @isset($categoryTitle)
+        {{ $categoryTitle }}
+    @else
+        Daylily listings
+    @endisset
+    </h1>
+    @isset($category)
     @if ($category == 'large')
         @include('partials/introduction_large')
     @endif
+    @endisset
     <ul class="c-plant-list">
         @foreach($plants as $plant)
             <li class="h-list--unstyled c-plant-list__item">
