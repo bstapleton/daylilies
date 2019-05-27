@@ -1,3 +1,11 @@
 .h-no-margin {
     margin: 0;
 }
+
+.h-margin-left__default {
+    margin-left: $defaultUnit;
+}
+
+.h-margin-left__double {
+    margin-left: $defaultUnit * 2;
+}

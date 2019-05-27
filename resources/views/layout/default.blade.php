@@ -21,6 +21,11 @@
     @section('layout-header')
         <div class="l-site-header">
             <h1 class="l-site-header__title h-heading">A La Carte Daylilies</h1>
+            <form action="post" role="search" class="l-site-header__form h-flex h-flex--align-center">
+                <label for="search" class="c-label">Search</label>
+                <input type="search" name="search" id="search" class="l-site-header__field c-field h-margin-left__default">
+                <input type="submit" class="c-button c-button--default h-margin-left__default">
+            </form>
         </div>
     @show
 

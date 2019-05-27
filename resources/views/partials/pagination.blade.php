@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-    <ul class="c-pagination h-list--unstyled h-list--horizontal" role="navigation">
+    <ul class="c-pagination h-list--unstyled h-list--horizontal h-no-padding" role="navigation">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
             <li class="c-pagination__item h-list--horizontal__item c-pagination__item--disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">

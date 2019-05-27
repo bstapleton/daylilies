@@ -1,17 +1,24 @@
 .c-button {
-    border-radius: $defaultUnit * 0.5;
-    padding: $defaultUnit ($defaultUnit * 2);
+    border-radius: $defaultUnit * 2.75;
+    padding: ($defaultUnit * 1.5) ($defaultUnit * 2);
     text-decoration: none;
+    font-size: $defaultUnit * 2;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .c-button--default {
-    border: 1px solid $brandDark;
+    border: 1px solid $borderColour;
     color: $brandDark;
+    background-color: $borderColour;
 
     &:hover,
     &:active {
         background-color: $brandDark;
         color: $backgroundColour;
+        border-color: $brandDark;
     }
 }
 
@@ -19,9 +26,4 @@
     border: 1px solid $brandDark;
     background-color: $brandDark;
     color: $backgroundColour;
-
-    &:hover,
-    &:active {
-        @include shadow-3dp();
-    }
 }

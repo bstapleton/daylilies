@@ -1,13 +1,31 @@
 .l-site-header {
-    padding: ($defaultUnit * 4) 0;
+    padding: ($defaultUnit * 3) 0 $defaultUnit;
     background-color: $brandLight;
     color: $brandDark;
     border-bottom: $defaultUnit solid $brandDark;
-    font-size: 2rem;
+    font-size: 1.4rem;
     margin-bottom: $defaultUnit * 4;
 }
 
 .l-site-header__title {
     text-align: center;
-    margin: 0;
+    margin: 0 0 $defaultUnit;
+}
+
+.l-site-header__form {
+    width: 100%;
+    margin: 0 auto;
+
+    @include md-up() {
+        max-width: 500px;
+    }
+
+    @include xl() {
+        max-width: 600px;
+    }
+}
+
+.l-site-header__field {
+    background: $cardBackgroundColour;
+    flex: 1 1 auto;
 }

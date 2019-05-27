@@ -32,6 +32,12 @@
 .h-no-margin {
   margin: 0; }
 
+.h-margin-left__default {
+  margin-left: 8px; }
+
+.h-margin-left__double {
+  margin-left: 16px; }
+
 .h-no-padding {
   padding: 0; }
 
@@ -48,16 +54,30 @@
   margin: 0; }
 
 .l-site-header {
-  padding: 32px 0;
+  padding: 24px 0 8px;
   background-color: #99cc99;
   color: #006600;
   border-bottom: 8px solid #006600;
-  font-size: 2rem;
+  font-size: 1.4rem;
   margin-bottom: 32px; }
 
 .l-site-header__title {
   text-align: center;
-  margin: 0; }
+  margin: 0 0 8px; }
+
+.l-site-header__form {
+  width: 100%;
+  margin: 0 auto; }
+  @media only screen and (min-width: 768px) {
+    .l-site-header__form {
+      max-width: 500px; } }
+  @media only screen and (min-width: 1500px) {
+    .l-site-header__form {
+      max-width: 600px; } }
+
+.l-site-header__field {
+  background: #fff;
+  flex: 1 1 auto; }
 
 .l-site-footer {
   padding: 32px;
@@ -117,23 +137,26 @@
   font-size: 0.8rem; }
 
 .c-button {
-  border-radius: 4px;
-  padding: 8px 16px;
-  text-decoration: none; }
+  border-radius: 22px;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-size: 16px; }
+  .c-button:hover {
+    cursor: pointer; }
 
 .c-button--default {
-  border: 1px solid #006600;
-  color: #006600; }
+  border: 1px solid #ddd;
+  color: #006600;
+  background-color: #ddd; }
   .c-button--default:hover, .c-button--default:active {
     background-color: #006600;
-    color: #f3f3f3; }
+    color: #f3f3f3;
+    border-color: #006600; }
 
 .c-button--success {
   border: 1px solid #006600;
   background-color: #006600;
   color: #f3f3f3; }
-  .c-button--success:hover, .c-button--success:active {
-    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12); }
 
 .c-plant-list {
   margin: 0 0 24px;
@@ -355,3 +378,18 @@
   flex: 1 0 calc(60% - (8px * 2));
   background-color: #fff;
   border-radius: 0 4px 4px 0; }
+
+.c-field {
+  border: 1px solid #ddd;
+  border-radius: 22px;
+  padding: 12px 16px;
+  font-size: 16px; }
+  .c-field:hover, .c-field:focus {
+    border-color: #006600; }
+  .c-field:focus {
+    padding: calc((8px * 1.5) - 2px) calc((8px * 2) - 2px);
+    border-width: 3px;
+    outline: none; }
+
+.c-label {
+  font-size: 16px; }

@@ -1,0 +1,17 @@
+.c-field {
+    border: 1px solid $borderColour;
+    border-radius: $defaultUnit * 2.75;
+    padding: ($defaultUnit * 1.5) ($defaultUnit * 2);
+    font-size: $defaultUnit * 2;
+
+    &:hover,
+    &:focus {
+        border-color: $brandDark;
+    }
+
+    &:focus {
+        padding: calc((#{$defaultUnit} * 1.5) - 2px) calc((#{$defaultUnit} * 2) - 2px);
+        border-width: 3px;
+        outline: none;
+    }
+}
