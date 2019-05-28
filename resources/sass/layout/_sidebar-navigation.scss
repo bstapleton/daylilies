@@ -1,18 +1,22 @@
 .l-sidebar-navigation {
     flex: 0 0 200px;
-    padding: 0 $defaultUnit;
-}
-
-.l-sidebar-navigation__list {
-    margin: 0;
-    padding: 0;
-}
-
-.l-sidebar-navigation__item {
-    margin: 0 0 $defaultUnit;
 }
 
 .l-sidebar-navigation__link {
-    padding: $defaultUnit * 0.5;
+    padding: $defaultUnit ($defaultUnit * 2);
     display: block;
+    min-width: 140px;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid $borderColour;
+    border-left: none;
+    margin-bottom: -1px;
+    margin-right: $defaultUnit * 3;
+    background: $cardBackgroundColour;
+    border-radius: 0 ($defaultUnit * 0.5) ($defaultUnit * 0.5) 0;
+    color: $brandDark;
+
+    &:hover {
+        margin-right: 0;
+        border-right: ($defaultUnit * 0.5) solid $brandDark;
+    }
 }

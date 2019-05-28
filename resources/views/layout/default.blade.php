@@ -33,30 +33,30 @@
 
     <div class="h-flex">
         <div class="l-sidebar-navigation">
-            <ul class="l-sidebar-navigation__list h-list--unstyled">
+            <ul class="l-sidebar-navigation__list h-list--unstyled h-no-margin h-no-padding">
                 <li class="l-sidebar-navigation__item">
-                    <a href="#" class="l-sidebar-navigation__link" title="A La Carte Daylilies homepage">Home</a>
+                    <a href="{{ URL::route('home') }}" class="l-sidebar-navigation__link" title="A La Carte Daylilies homepage">Home</a>
                 </li>
                 <li class="l-sidebar-navigation__item">
-                    <a href="#" class="l-sidebar-navigation__link" title="New Daylilies for {{Date('Y')}} and {{Date('Y') - 1}}">New plants</a>
+                    <a href="{{ URL::route('plants.new') }}" class="l-sidebar-navigation__link" title="New Daylilies for {{Date('Y')}} and {{Date('Y') - 1}}">New plants</a>
                 </li>
                 <li class="l-sidebar-navigation__item">
-                    <a href="#" class="l-sidebar-navigation__link" title="Large flowered daylilies">Large flowered</a>
+                    <a href="{{ URL::route('plants.category', 'large') }}" class="l-sidebar-navigation__link" title="Large flowered daylilies">Large flowered</a>
                 </li>
                 <li class="l-sidebar-navigation__item">
-                    <a href="#" class="l-sidebar-navigation__link" title="Small flowered daylilies">Small flowered</a>
+                    <a href="{{ URL::route('plants.category', 'small') }}" class="l-sidebar-navigation__link" title="Small flowered daylilies">Small flowered</a>
                 </li>
                 <li class="l-sidebar-navigation__item">
-                    <a href="#" class="l-sidebar-navigation__link" title="Miniature flowered daylilies">Miniatures</a>
+                    <a href="{{ URL::route('plants.category', 'miniature') }}" class="l-sidebar-navigation__link" title="Miniature flowered daylilies">Miniatures</a>
                 </li>
                 <li class="l-sidebar-navigation__item">
-                    <a href="#" class="l-sidebar-navigation__link" title="Spider flowered and unusual form daylilies">Spider daylilies</a>
+                    <a href="{{ URL::route('plants.category', 'spider') }}" class="l-sidebar-navigation__link" title="Spider flowered and unusual form daylilies">Spider daylilies</a>
                 </li>
                 <li class="l-sidebar-navigation__item">
-                    <a href="#" class="l-sidebar-navigation__link" title="Online daylily order form">Order form</a>
+                    <a href="{{ URL::route('order-form') }}" class="l-sidebar-navigation__link" title="Online daylily order form">Order form</a>
                 </li>
                 <li class="l-sidebar-navigation__item">
-                    <a href="#" class="l-sidebar-navigation__link">Contact us</a>
+                    <a href="{{ URL::route('contact-us') }}" class="l-sidebar-navigation__link">Contact us</a>
                 </li>
             </ul>
         </div>
@@ -70,7 +70,8 @@
 
     @section('layout-footer')
         <div class="l-site-footer">
-            default footer here
+            <p>Copyright {{ date('Y') }} A La Carte Daylilies.</p>
+            <p>All of our daylily photos were taken in our garden on the Isle of Wight and are also copyrighted to A La Carte Daylilies. Please do no re-use these images without our express permission to do so. Thank you.</p>
         </div>
     @show
 
