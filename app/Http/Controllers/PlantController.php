@@ -88,6 +88,16 @@ class PlantController extends BaseController
         {
             $plant->heightInCm = $this->convertInchesToCentimetres($plant->height);
             $plant->flowerInCm = $this->convertInchesToCentimetres($plant->flower_size);
+
+            // TODO: make this a method!
+            if (file_exists(public_path() . '/images/thumbnails/' . $plant->slug . '.jpg'))
+            {
+                $plant->thumbnail = '/images/thumbnails/' . $plant->slug . '.jpg';
+            }
+            else
+            {
+                $plant->thumbnail = '/images/no-thumbnail.svg';
+            }
         }
 
         switch ($category) {
