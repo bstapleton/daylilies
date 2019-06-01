@@ -58,9 +58,14 @@ class PlantController extends BaseController
                 ->paginate(self::GRID_RESULTS);
         }
 
+        foreach ($plants as $plant) {
+            $plant->thumbnail = $this->getPlantThumbnail($plant->slug);
+        }
+
         return view('plants-grid', [
             'plants' => $plants,
-            'categoryTitle' => 'Newest daylilies in the website catalogue',
+            'isCategoryView' => false,
+            'pageHeading' => 'Newest daylilies in the website catalogue',
             'title' => 'Newest additions',
             'metaDescription' => 'Latest daylily additions to the website catalogue across all categories.'
         ]);
@@ -116,11 +121,16 @@ class PlantController extends BaseController
             return view('error', ['category' => 'Foliage Request', 'request' => $foliage]);
         }
 
+        foreach ($plants as $plant) {
+            $plant->thumbnail = $this->getPlantThumbnail($plant->slug);
+        }
+
         return view('plants-list', [
             'plants' => $plants,
-            'category' => 'Daylilies with ' . $foliage . ' foliage',
-            'categoryTitle' => ucfirst($foliage) . ' daylilies',
-            'title' => ucfirst($foliage) . ' daylilies'
+            'isCategoryView' => false,
+            'pageHeading' => 'Daylilies with ' . $foliage . ' foliage',
+            'title' => ucfirst($foliage) . ' daylilies',
+            'metaDescription' => 'Daylilies with ' . $foliage . ' foliage'
         ]);
     }
 
@@ -139,11 +149,16 @@ class PlantController extends BaseController
             return view('error', ['category' => 'Season Request', 'request' => $season]);
         }
 
+        foreach ($plants as $plant) {
+            $plant->thumbnail = $this->getPlantThumbnail($plant->slug);
+        }
+
         return view('plants-list', [
             'plants' => $plants,
-            'category' => 'Daylilies that flower ' . str_replace('-', ' ', $season),
-            'categoryTitle' => ucfirst(str_replace('-', ' ', $season)) . ' daylilies',
-            'title' => ucfirst(str_replace('-', ' ', $season)) . ' daylilies'
+            'isCategoryView' => false,
+            'pageHeading' => 'Daylilies that flower ' . str_replace('-', ' ', $season),
+            'title' => ucfirst(str_replace('-', ' ', $season)) . ' daylilies',
+            'metaDescription' => 'Daylilies that flower ' . str_replace('-', ' ', $season)
         ]);
     }
 

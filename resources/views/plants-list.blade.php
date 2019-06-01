@@ -8,6 +8,8 @@
     <h1 class="h-heading l-page-content__title">
     @if($isCategoryView)
         {{ $plants->first()->category->first()->name }} daylilies
+    @elseif(isset($pageHeading))
+        {{ $pageHeading }}
     @else
         Daylily listings
     @endif
