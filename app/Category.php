@@ -18,7 +18,7 @@ class Category extends Model
     /**
      * @var array Fillable fields for this model.
      */
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['name', 'slug', 'description', 'meta_description'];
 
     /**
      * A Category has many Plants.
@@ -27,6 +27,6 @@ class Category extends Model
      */
     public function plants()
     {
-        return $this->hasMany(Plant::class);
+        return $this->hasMany(Plant::class, 'category_id');
     }
 }

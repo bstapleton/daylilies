@@ -76,7 +76,7 @@ class PlantController extends BaseController
         $paginationCount = request('display') == 'grid' ? self::GRID_RESULTS : self::LIST_RESULTS;
 
         $plants = Plant::whereHas('category', function($query) use ($category) {
-            $query->whereName(ucfirst($category));
+            $query->whereSlug($category);
         })->orderBy('name')->paginate($paginationCount);
 
         if ($plants->count() < 1)
@@ -88,41 +88,16 @@ class PlantController extends BaseController
         {
             $plant->heightInCm = $this->convertInchesToCentimetres($plant->height);
             $plant->flowerInCm = $this->convertInchesToCentimetres($plant->flower_size);
-
-            // TODO: make this a method!
-            if (file_exists(public_path() . '/images/thumbnails/' . $plant->slug . '.jpg'))
-            {
-                $plant->thumbnail = '/images/thumbnails/' . $plant->slug . '.jpg';
-            }
-            else
-            {
-                $plant->thumbnail = '/images/no-thumbnail.svg';
-            }
-        }
-
-        switch ($category) {
-            case 'large':
-                $metaDescription = 'Large flowered daylilies are the most popular and well-known category of Hemerocallis; defined by a flower size of 4.5 inches and above';
-                break;
-            case 'small':
-                $metaDescription = 'Small flowered daylilies have attracted increasing attention since being officially recognised. They are defined by a flower size between 3 and 4.5 inches';
-                break;
-            case 'miniature':
-                $metaDescription = 'Miniature flowered daylilies make up for their small bloom size (anything under 3 inches) with more flowers per plant. Ideal for where space is at a premium';
-                break;
-            case 'spider':
-                $metaDescription = 'Spider daylilies here are grouped with unusual forms. They tend to have a sculptured look and can be an interesting choice in garden designs';
-                break;
+            $plant->thumbnail = $this->getPlantThumbnail($plant->slug);
         }
 
         $view = request('display') == 'grid' ? 'plants-grid' : 'plants-list';
 
         return view($view, [
             'plants' => $plants,
-            'category' => $category,
-            'categoryTitle' => ucfirst($category) . ' daylilies',
-            'title' => ucfirst($category) . ' daylilies',
-            'metaDescription' => $metaDescription
+            'isCategoryView' => true,
+            'title' => $plants->first()->category()->first()->name . ' daylilies',
+            'metaDescription' => $plants->first()->category()->first()->meta_description
         ]);
     }
 
@@ -170,5 +145,20 @@ class PlantController extends BaseController
             'categoryTitle' => ucfirst(str_replace('-', ' ', $season)) . ' daylilies',
             'title' => ucfirst(str_replace('-', ' ', $season)) . ' daylilies'
         ]);
+    }
+
+    /**
+     * Returns the thumbnail image path for a given plant slug, or a default image if nothing is found.
+     *
+     * @param string $slug
+     * @return string
+     */
+    private function getPlantThumbnail(string $slug) {
+        if (file_exists(public_path() . '/images/thumbnails/' . $slug . '.jpg'))
+        {
+            return '/images/thumbnails/' . $slug . '.jpg';
+        }
+
+        return '/images/no-thumbnail.svg';
     }
 }
