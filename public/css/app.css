@@ -88,6 +88,16 @@
 .l-sidebar-navigation {
   flex: 0 0 200px; }
 
+.l-sidebar-navigation__item:first-child .l-sidebar-navigation__link {
+  border-radius: 0 4px 0 0; }
+  .l-sidebar-navigation__item:first-child .l-sidebar-navigation__link:hover {
+    border-radius: 0 4px 4px 0; }
+
+.l-sidebar-navigation__item:last-child .l-sidebar-navigation__link {
+  border-radius: 0 0 4px 0; }
+  .l-sidebar-navigation__item:last-child .l-sidebar-navigation__link:hover {
+    border-radius: 0 4px 4px 0; }
+
 .l-sidebar-navigation__link {
   padding: 8px 16px;
   display: block;
@@ -98,11 +108,11 @@
   margin-bottom: -1px;
   margin-right: 24px;
   background: #fff;
-  border-radius: 0 4px 4px 0;
   color: #006600; }
   .l-sidebar-navigation__link:hover {
     margin-right: 0;
-    border-right: 4px solid #006600; }
+    border-right: 4px solid #006600;
+    border-radius: 0 4px 4px 0; }
 
 .l-page-content {
   padding: 0 32px 0 16px;

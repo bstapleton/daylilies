@@ -1,5 +1,29 @@
+$hoverRadius: 0 ($defaultUnit * 0.5) ($defaultUnit * 0.5) 0;
+
 .l-sidebar-navigation {
     flex: 0 0 200px;
+}
+
+.l-sidebar-navigation__item {
+    &:first-child {
+        .l-sidebar-navigation__link {
+            border-radius: 0 ($defaultUnit * 0.5) 0 0;
+
+            &:hover {
+                border-radius: $hoverRadius;
+            }
+        }
+    }
+
+    &:last-child {
+        .l-sidebar-navigation__link {
+            border-radius: 0 0 ($defaultUnit * 0.5) 0;
+
+            &:hover {
+                border-radius: $hoverRadius;
+            }
+        }
+    }
 }
 
 .l-sidebar-navigation__link {
@@ -12,11 +36,11 @@
     margin-bottom: -1px;
     margin-right: $defaultUnit * 3;
     background: $cardBackgroundColour;
-    border-radius: 0 ($defaultUnit * 0.5) ($defaultUnit * 0.5) 0;
     color: $brandDark;
 
     &:hover {
         margin-right: 0;
         border-right: ($defaultUnit * 0.5) solid $brandDark;
+        border-radius: $hoverRadius;
     }
 }
