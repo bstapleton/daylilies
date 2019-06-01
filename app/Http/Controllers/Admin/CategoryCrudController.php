@@ -26,8 +26,7 @@ class CategoryCrudController extends CrudController
         $this->crud->setEntityNameStrings('category', 'categories');
 
         $this->crud->setColumns([
-            'name',
-            'description'
+            'name'
         ]);
 
         $this->crud->addField([
@@ -39,8 +38,14 @@ class CategoryCrudController extends CrudController
 
         $this->crud->addField([
             'name' => 'description',
-            'type' => 'textarea',
+            'type' => 'ckeditor',
             'label' => 'Description'
+        ]);
+
+        $this->crud->addField([
+            'name' => 'meta_description',
+            'type' => 'textarea',
+            'label' => 'Search engines description'
         ]);
 
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
