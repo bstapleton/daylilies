@@ -28,7 +28,7 @@
                     <meta itemprop="sku" content="{{ $plant->category->name }}{{ $plant->id }}">
                     <meta itemprop="mpn" content="{{ $plant->category->name }}{{ $plant->id }}">
                     <p class="c-plant-grid__stock" itemprop="offers" itemscope itemtype="http://schema.org/Offer" itemid="#offer">
-                        <meta itemprop="url" content="http://alacartedaylilies.co.uk/large/airs_and_graces.jpg">
+                        <meta itemprop="url" content="{{ URL::route('plants.view', $plant->slug) }}">
                         <meta itemprop="priceCurrency" content="GBP">&pound;<span itemprop="price">{{ $plant->price }}</span> /
                         @if ($plant->in_stock == true)
                             <link itemprop="availability" href="http://schema.org/InStock" />In stock
