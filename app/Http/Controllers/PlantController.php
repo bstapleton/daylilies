@@ -59,7 +59,7 @@ class PlantController extends BaseController
         }
 
         foreach ($plants as $plant) {
-            $plant->thumbnail = $this->getPlantThumbnail($plant->slug);
+            $plant->thumbnail = $this->getThumbnailFromSlug($plant->slug);
         }
 
         return view('plants-grid', [
@@ -93,7 +93,7 @@ class PlantController extends BaseController
         {
             $plant->heightInCm = $this->convertInchesToCentimetres($plant->height);
             $plant->flowerInCm = $this->convertInchesToCentimetres($plant->flower_size);
-            $plant->thumbnail = $this->getPlantThumbnail($plant->slug);
+            $plant->thumbnail = $this->getThumbnailFromSlug($plant->slug);
         }
 
         $view = request('display') == 'grid' ? 'plants-grid' : 'plants-list';
@@ -122,7 +122,7 @@ class PlantController extends BaseController
         }
 
         foreach ($plants as $plant) {
-            $plant->thumbnail = $this->getPlantThumbnail($plant->slug);
+            $plant->thumbnail = $this->getThumbnailFromSlug($plant->slug);
         }
 
         return view('plants-list', [
@@ -150,7 +150,7 @@ class PlantController extends BaseController
         }
 
         foreach ($plants as $plant) {
-            $plant->thumbnail = $this->getPlantThumbnail($plant->slug);
+            $plant->thumbnail = $this->getThumbnailFromSlug($plant->slug);
         }
 
         return view('plants-list', [
@@ -160,20 +160,5 @@ class PlantController extends BaseController
             'title' => ucfirst(str_replace('-', ' ', $season)) . ' daylilies',
             'metaDescription' => 'Daylilies that flower ' . str_replace('-', ' ', $season)
         ]);
-    }
-
-    /**
-     * Returns the thumbnail image path for a given plant slug, or a default image if nothing is found.
-     *
-     * @param string $slug
-     * @return string
-     */
-    private function getPlantThumbnail(string $slug) {
-        if (file_exists(public_path() . '/images/thumbnails/' . $slug . '.jpg'))
-        {
-            return '/images/thumbnails/' . $slug . '.jpg';
-        }
-
-        return '/images/no-thumbnail.svg';
     }
 }
