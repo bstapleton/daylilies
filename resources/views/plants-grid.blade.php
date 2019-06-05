@@ -5,15 +5,7 @@
 @endsection
 
 @section('content')
-    <h1 class="h-heading l-page-content__title">
-    @if($isCategoryView)
-        {{ $plants->first()->category->first()->name }} daylilies
-    @elseif(isset($pageHeading))
-        {{ $pageHeading }}
-    @else
-        Daylily listings
-    @endif
-    </h1>
+    @include('partials.plants-introduction')
     <div class="c-plant-grid h-flex h-flex-wrap">
         @foreach($plants as $plant)
             <article class="h-list--unstyled c-plant-grid__item h-flex h-flex--column" itemscope itemtype="http://schema.org/Product">

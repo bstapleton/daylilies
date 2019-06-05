@@ -1,5 +1,5 @@
 .c-button {
-    border-radius: $defaultUnit * 2.75;
+    border-radius: $defaultUnit * 1.5;
     padding: ($defaultUnit * 1.5) ($defaultUnit * 2);
     text-decoration: none;
     font-size: $defaultUnit * 2;
@@ -10,20 +10,28 @@
 }
 
 .c-button--default {
-    border: 1px solid $borderColour;
-    color: $brandDark;
-    background-color: $borderColour;
+    @extend .c-button;
+    border: 1px solid $brandDark;
+    color: $defaultText;
+    background-color: $cardBackgroundColour;
 
     &:hover,
     &:active {
-        background-color: $brandDark;
-        color: $backgroundColour;
+        background-color: $borderColour;
+        color: $brandDark;
         border-color: $brandDark;
     }
 }
 
 .c-button--success {
+    @extend .c-button;
     border: 1px solid $brandDark;
-    background-color: $brandDark;
-    color: $backgroundColour;
+    background-color: $cardBackgroundColour;
+    color: $brandDark;
+
+    &:hover,
+    &:active {
+        background-color: $borderColour;
+        border-color: $brandDark;
+    }
 }

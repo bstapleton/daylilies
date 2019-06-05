@@ -8,7 +8,7 @@
 }
 
 .h-list--horizontal {
-    @extend %h-flex;
+    @extend .h-flex;
 }
 
 .h-list--horizontal__item {

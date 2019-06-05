@@ -1,9 +1,5 @@
-%h-flex {
-    display: flex;
-}
-
 .h-flex {
-    @extend %h-flex;
+    display: flex;
 }
 
 .h-flex--column {
@@ -20,4 +16,8 @@
 
 .h-flex--align-center {
     align-items: center;
+}
+
+.h-flex--justify-right {
+    justify-content: flex-end;
 }

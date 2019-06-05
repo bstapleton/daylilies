@@ -1,0 +1,5 @@
+.c-plant-view-controls {
+    @extend .c-plant-grid;
+    padding: 0;
+    margin-bottom: $defaultUnit * 2;
+}

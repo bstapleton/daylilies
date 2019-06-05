@@ -13,6 +13,9 @@
 .h-flex--align-center {
   align-items: center; }
 
+.h-flex--justify-right {
+  justify-content: flex-end; }
+
 .h-list--unstyled {
   list-style: none; }
 
@@ -150,27 +153,30 @@
   padding: 16px;
   font-size: 0.8rem; }
 
-.c-button {
-  border-radius: 22px;
+.c-button, .c-button--default, .c-button--success {
+  border-radius: 12px;
   padding: 12px 16px;
   text-decoration: none;
   font-size: 16px; }
-  .c-button:hover {
+  .c-button:hover, .c-button--default:hover, .c-button--success:hover {
     cursor: pointer; }
 
 .c-button--default {
-  border: 1px solid #ddd;
-  color: #006600;
-  background-color: #ddd; }
+  border: 1px solid #006600;
+  color: #222;
+  background-color: #fff; }
   .c-button--default:hover, .c-button--default:active {
-    background-color: #006600;
-    color: #f3f3f3;
+    background-color: #ddd;
+    color: #006600;
     border-color: #006600; }
 
 .c-button--success {
   border: 1px solid #006600;
-  background-color: #006600;
-  color: #f3f3f3; }
+  background-color: #fff;
+  color: #006600; }
+  .c-button--success:hover, .c-button--success:active {
+    background-color: #ddd;
+    border-color: #006600; }
 
 .c-plant-list {
   margin: 0 0 24px;
@@ -179,7 +185,10 @@
 .c-plant-list__item {
   padding: 0;
   border-radius: 8px;
-  max-width: 1000px; }
+  max-width: 100%; }
+  @media only screen and (min-width: 1500px) {
+    .c-plant-list__item {
+      max-width: 1000px; } }
   .c-plant-list__item:not(:last-child) {
     margin: 0 0 16px; }
   .c-plant-list__item:hover .c-plant-list__detail {
@@ -235,12 +244,12 @@
   border-style: solid;
   transition: transform 0.2s ease-in-out 0.1s; }
 
-.c-plant-grid {
+.c-plant-grid, .c-plant-view-controls {
   padding-top: 32px;
-  margin: -16px;
+  margin: 0 -16px;
   max-width: 100%; }
   @media only screen and (min-width: 1500px) {
-    .c-plant-grid {
+    .c-plant-grid, .c-plant-view-controls {
       max-width: calc(1000px + (32px)); } }
 
 .c-plant-grid__item {
@@ -441,3 +450,7 @@
 
 .c-search-list__name {
   flex: 1 0 auto; }
+
+.c-plant-view-controls {
+  padding: 0;
+  margin-bottom: 16px; }

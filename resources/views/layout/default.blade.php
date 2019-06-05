@@ -25,7 +25,7 @@
             <form action="post" role="search" class="l-site-header__form h-flex h-flex--align-center">
                 <label for="search" class="c-label">Search</label>
                 <input type="search" name="search" id="search" class="l-site-header__field c-field h-margin-left__default">
-                <input type="submit" class="c-button c-button--default h-margin-left__default">
+                <input type="submit" class="c-button--default h-margin-left__default">
             </form>
             <ul class="h-list--unstyled h-no-padding c-search-list" id="search-list" style="display: none;"></ul>
         </div>
