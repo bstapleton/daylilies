@@ -46,21 +46,21 @@ class PlantController extends BaseController
      * @return Factory|View
      */
     public function listNew() {
+        $category = Input::get('category');
+
         $plants = Plant::where('year_added', '>', date('Y') - 1)
             ->orderBy('name', 'asc')
             ->orderBy('year_added', 'desc')
             ->paginate(self::GRID_RESULTS);
 
-        if (Input::get('category'))
+        if ($category)
         {
-            $category = Input::get('category');
-
             $plants = Plant::where('year_added', '>', date('Y') - 1)
                 ->whereHas('category', function($query) use ($category) {
                     $query->whereSlug($category);
                 })
                 ->orderBy('name', 'asc')
-                ->paginate(self::GRID_RESULTS);
+                ->get();
         }
 
         foreach ($plants as $plant)
@@ -71,6 +71,7 @@ class PlantController extends BaseController
         return view('plants-grid', [
             'plants' => $plants,
             'isCategoryView' => false,
+            'isNewPlantsGrid' => true,
             'pageHeading' => 'Newest daylilies in the website catalogue',
             'title' => 'Newest additions',
             'metaDescription' => 'Latest daylily additions to the website catalogue across all categories.'
