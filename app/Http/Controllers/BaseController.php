@@ -37,14 +37,17 @@ class BaseController extends Controller
      * @param int $pageNumber
      * @return float|int
      */
-    protected function getPageNumber(int $pageNumber, bool $isCurrentlyGrid = false)
+    protected function getPageNumber(int $pageNumber = null, bool $isCurrentlyGrid = false)
     {
-        if ($isCurrentlyGrid == true)
-        {
-            return (($pageNumber - 1) * 5) + 1;
+        if ($pageNumber) {
+            if ($isCurrentlyGrid == true) {
+                return (($pageNumber - 1) * 5) + 1;
+            }
+
+            return floor(($pageNumber / 5) + 1);
         }
 
-        return floor(($pageNumber / 5) + 1);
+        return 1;
     }
 
     /**
