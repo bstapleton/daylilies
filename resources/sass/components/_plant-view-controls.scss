@@ -1,5 +1,8 @@
 .c-plant-view-controls {
-    @extend .c-plant-grid;
-    padding: 0;
-    margin-bottom: $defaultUnit * 2;
+    margin: ($defaultUnit * 4) 0;
+    max-width: 100%;
+
+    @include xl() {
+        max-width: 1000px;
+    }
 }

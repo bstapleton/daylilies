@@ -19,7 +19,7 @@
 </div>
 @isset($pageNumberList)
 <div class="c-plant-view-controls">
-    <ul class="h-list--horizontal h-list--unstyled h-flex--align-center h-flex--justify-right">
+    <ul class="h-list--horizontal h-list--unstyled h-flex--align-center h-flex--justify-right h-no-padding">
         <li class="h-list--horizontal__item">View as:</li>
         <li class="h-list--horizontal__item">
             <a class="c-button--default" {{ app('request')->input('display') == 'grid' ? 'href=?page=' . $pageNumberList : 'href=# disabled=disabled' }} href="?page={{ $pageNumberList }}">List</a>

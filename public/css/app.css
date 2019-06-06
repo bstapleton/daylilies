@@ -244,12 +244,11 @@
   border-style: solid;
   transition: transform 0.2s ease-in-out 0.1s; }
 
-.c-plant-grid, .c-plant-view-controls {
-  padding-top: 32px;
+.c-plant-grid {
   margin: 0 -16px;
   max-width: 100%; }
   @media only screen and (min-width: 1500px) {
-    .c-plant-grid, .c-plant-view-controls {
+    .c-plant-grid {
       max-width: calc(1000px + (32px)); } }
 
 .c-plant-grid__item {
@@ -452,5 +451,8 @@
   flex: 1 0 auto; }
 
 .c-plant-view-controls {
-  padding: 0;
-  margin-bottom: 16px; }
+  margin: 32px 0;
+  max-width: 100%; }
+  @media only screen and (min-width: 1500px) {
+    .c-plant-view-controls {
+      max-width: 1000px; } }
