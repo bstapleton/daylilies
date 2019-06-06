@@ -70,8 +70,7 @@
 
     @section('layout-footer')
         <div class="l-site-footer">
-            <p>Copyright {{ date('Y') }} A La Carte Daylilies.</p>
-            <p>All of our daylily photos were taken in our garden on the Isle of Wight and are also copyrighted to A La Carte Daylilies. Please do no re-use these images without our express permission to do so. Thank you.</p>
+            @include('partials.site-footer-content')
         </div>
     @show
 
@@ -89,8 +88,7 @@
                 url : '{{ URL::to('search') }}',
                 data:{'search':$value},
                 success:function(data){
-                    $('#search-list').show();
-                    $('#search-list').html(data);
+                    $('#search-list').show().html(data);
                 }
             });
         });
@@ -100,8 +98,13 @@
                 $('#search-list').css('display', 'none');
             }, 100)
         });
-    </script>
-    <script type="text/javascript">
+
+        $('a').click(function(event) {
+            if ($(this).attr('disabled')) {
+                event.preventDefault();
+            }
+        });
+
         $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
     </script>
 </body>
