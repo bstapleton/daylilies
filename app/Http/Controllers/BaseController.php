@@ -16,7 +16,7 @@ class BaseController extends Controller
     /**
      * Number of results to return in a grid view.
      */
-    public const GRID_RESULTS = 20;
+    public const GRID_RESULTS = 100;
 
     /**
      * Takes a numeric value representing inches and returns its equivalent in centimetres to 2dp.
@@ -27,6 +27,24 @@ class BaseController extends Controller
     protected function convertInchesToCentimetres(float $inches)
     {
         return number_format(($inches * 2.54), 2);
+    }
+
+    /**
+     * Return a page number for each display type relative to the current
+     * position in the paginated list.
+     *
+     * @param bool $isCurrentlyGrid
+     * @param int $pageNumber
+     * @return float|int
+     */
+    protected function getPageNumber(int $pageNumber, bool $isCurrentlyGrid = false)
+    {
+        if ($isCurrentlyGrid == true)
+        {
+            return (($pageNumber - 1) * 5) + 1;
+        }
+
+        return floor(($pageNumber / 5) + 1);
     }
 
     /**
