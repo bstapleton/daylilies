@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Plant;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Input;
 
 /**
  * Class PlantController
@@ -100,6 +101,8 @@ class PlantController extends BaseController
 
         return view($view, [
             'plants' => $plants,
+            'pageNumberGrid' => $this->getPageNumber(Input::get('page'), false),
+            'pageNumberList' => $this->getPageNumber(Input::get('page'), true),
             'isCategoryView' => true,
             'title' => $plants->first()->category()->first()->name . ' daylilies',
             'metaDescription' => $plants->first()->category()->first()->meta_description
@@ -127,6 +130,8 @@ class PlantController extends BaseController
 
         return view('plants-list', [
             'plants' => $plants,
+            'pageNumberGrid' => $this->getPageNumber(Input::get('page'), false),
+            'pageNumberList' => $this->getPageNumber(Input::get('page'), true),
             'isCategoryView' => false,
             'pageHeading' => 'Daylilies with ' . $foliage . ' foliage',
             'title' => ucfirst($foliage) . ' daylilies',
@@ -155,6 +160,8 @@ class PlantController extends BaseController
 
         return view('plants-list', [
             'plants' => $plants,
+            'pageNumberGrid' => $this->getPageNumber(Input::get('page'), false),
+            'pageNumberList' => $this->getPageNumber(Input::get('page'), true),
             'isCategoryView' => false,
             'pageHeading' => 'Daylilies that flower ' . str_replace('-', ' ', $season),
             'title' => ucfirst(str_replace('-', ' ', $season)) . ' daylilies',
