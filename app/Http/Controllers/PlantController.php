@@ -41,25 +41,30 @@ class PlantController extends BaseController
     }
 
     /**
-     * Get all plants that hve been added tot he website in the current or previous year.
+     * Get all plants that have been added to the website in the current or previous year.
      *
      * @return Factory|View
      */
     public function listNew() {
-        $currentYear = date('Y');
-
-        $plants = Plant::where('year_added', $currentYear)
+        $plants = Plant::where('year_added', '>', date('Y') - 1)
             ->orderBy('name', 'asc')
+            ->orderBy('year_added', 'desc')
             ->paginate(self::GRID_RESULTS);
 
-        if ($plants->count() < 1)
+        if (Input::get('category'))
         {
-            $plants = Plant::where('year_added', $currentYear - 1)
+            $category = Input::get('category');
+
+            $plants = Plant::where('year_added', '>', date('Y') - 1)
+                ->whereHas('category', function($query) use ($category) {
+                    $query->whereSlug($category);
+                })
                 ->orderBy('name', 'asc')
                 ->paginate(self::GRID_RESULTS);
         }
 
-        foreach ($plants as $plant) {
+        foreach ($plants as $plant)
+        {
             $plant->thumbnail = $this->getThumbnailFromSlug($plant->slug);
         }
 
