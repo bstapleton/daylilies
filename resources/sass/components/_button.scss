@@ -35,3 +35,14 @@
         border-color: $brandDark;
     }
 }
+
+.c-button--icon {
+    display: flex;
+    align-items: center;
+    padding: ($defaultUnit * 1.5) ($defaultUnit * 2);
+}
+
+.c-button__icon {
+    margin-right: $defaultUnit * 2;
+    height: $defaultUnit * 3;
+}
