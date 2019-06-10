@@ -101,6 +101,7 @@ class PlantController extends BaseController
             $plant->heightInCm = $this->convertInchesToCentimetres($plant->height);
             $plant->flowerInCm = $this->convertInchesToCentimetres($plant->flower_size);
             $plant->thumbnail = $this->getThumbnailFromSlug($plant->slug);
+            $plant->icon = $this->getStatusIcon($plant->in_stock, $plant->year_added);
         }
 
         $view = request('display') == 'grid' ? 'plants-grid' : 'plants-list';

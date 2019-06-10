@@ -232,15 +232,37 @@
   padding: 8px 16px;
   background-color: #fff; }
 
-.c-plant-list__title {
+.c-plant-list__header {
+  display: flex;
+  align-items: center;
+  background: #f3f3f3;
+  width: 100%;
+  border-radius: 8px 8px 0 0; }
+
+.c-plant-list__icon {
+  width: 32px;
+  margin: 4px 16px 0 0; }
+
+.c-plant-list__header--new {
+  background-color: #99cc99; }
+  .c-plant-list__header--new svg {
+    fill: #006600; }
+
+.c-plant-list__header--out {
+  background-color: #ff5b5a; }
+  .c-plant-list__header--out svg {
+    fill: #fff; }
+
+.c-plant-list__title, .c-plant-list__title--out {
+  flex: 1 0 calc(100% - (8px * 10));
   font-size: 1.2rem;
   font-weight: normal;
   margin: 0;
   padding: 8px 16px;
-  background: #f3f3f3;
-  border-radius: 8px 8px 0 0;
-  color: #006600;
-  flex: 1 0 calc(100% - (16px * 2)); }
+  color: #006600; }
+
+.c-plant-list__title--out {
+  color: #fff; }
 
 .c-plant-list__thumbnail {
   flex: 0 0 200px;

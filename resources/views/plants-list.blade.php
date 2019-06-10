@@ -15,7 +15,12 @@
                         <a href="{{ URL::route('plants.view', $plant->slug) }}" title="View details for {{ $plant->name }}"><img class="c-plant-list__image" itemprop="image" loading="lazy" src="{{ $plant->thumbnail }}" alt="" /></a>
                     </div>
                     <div class="c-plant-list__detail">
-                        <h2 itemprop="name" class="c-plant-list__title">{{ $plant->name }}</h2>
+                        <header class="c-plant-list__header{{ $plant->year_added > (Date('Y') - 1) ? ' c-plant-list__header--new' : null }}{{ !$plant->in_stock ? ' c-plant-list__header--out' : null }}">
+                            <h2 itemprop="name" class="c-plant-list__title{{ !$plant->in_stock ? ' c-plant-list__title--out' : null }}">{{ $plant->name }}</h2>
+                            @isset($plant->icon)
+                                <i class="c-plant-list__icon">{!! $plant->icon !!}</i>
+                            @endisset
+                        </header>
                         <meta itemprop="sku" content="{{ $plant->category->name }}{{ $plant->id }}">
                         <meta itemprop="mpn" content="{{ $plant->category->name }}{{ $plant->id }}">
                         <div class="c-plant-list__content h-flex">

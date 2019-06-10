@@ -48,10 +48,10 @@
     <ul class="h-list--horizontal h-list--unstyled h-flex--align-center h-flex--justify-right h-no-padding">
         <li class="h-list--horizontal__item">View as:</li>
         <li class="h-list--horizontal__item">
-            <a class="c-button--default c-button--icon" {{ app('request')->input('display') == 'grid' ? 'href=?page=' . $pageNumberList : 'href=# disabled=disabled' }}><img src="{{ asset('images/icon-list.svg') }}" alt="" class="c-button__icon">List</a>
+            <a class="c-button--default c-button--icon" {{ app('request')->input('display') == 'grid' ? 'href=?page=' . $pageNumberList : 'href=# disabled=disabled' }}><img src="{{ asset('images/icon-list.svg') }}" alt="" class="c-button__icon" />List</a>
         </li>
         <li class="h-list--horizontal__item">
-            <a class="c-button--default c-button--icon" href="?display=grid&amp;page={{ $pageNumberGrid }}"><img src="{{ asset('images/icon-grid.svg') }}" alt="" class="c-button__icon">Grid</a>
+            <a class="c-button--default c-button--icon" href="?display=grid&amp;page={{ $pageNumberGrid }}"><img src="{{ asset('images/icon-grid.svg') }}" alt="" class="c-button__icon" />Grid</a>
         </li>
     </ul>
 </div>
