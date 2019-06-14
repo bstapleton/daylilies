@@ -48,7 +48,7 @@ class Plant extends Model
     }
 
     /**
-     * A plant can have one or more flower colour.
+     * A Plant can have one or more Flower Colour.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
@@ -58,7 +58,7 @@ class Plant extends Model
     }
 
     /**
-     * A plant can have one or more stamen colours.
+     * A Plant can have one or more Stamen Colour.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
@@ -68,7 +68,7 @@ class Plant extends Model
     }
 
     /**
-     * A plant can have one or more throat colours.
+     * A Plant can have one or more Throat Colour.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
@@ -116,5 +116,15 @@ class Plant extends Model
     public function forms()
     {
         return $this->belongsToMany(Form::class, 'form_plant');
+    }
+
+    /**
+     * A Plant can appear on many different order Rows.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function rows()
+    {
+        return $this->hasMany(Row::class);
     }
 }
