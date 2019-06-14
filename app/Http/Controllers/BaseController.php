@@ -83,7 +83,7 @@ class BaseController extends Controller
 
     /**
      * Returns a base64 decoded svg icon for a plant based on stock and year added to the website.
-     * 
+     *
      * @param bool $inStock whether or not the plant is in stock.
      * @param int $yearAdded the year added to the website.
      * @return string|null

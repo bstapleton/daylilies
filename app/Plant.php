@@ -48,6 +48,36 @@ class Plant extends Model
     }
 
     /**
+     * A plant can have one or more flower colour.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function flower_colours()
+    {
+        return $this->belongsToMany(FlowerColour::class, 'flower_colour_plant');
+    }
+
+    /**
+     * A plant can have one or more stamen colours.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function stamen_colours()
+    {
+        return $this->belongsToMany(StamenColour::class, 'stamen_colour_plant');
+    }
+
+    /**
+     * A plant can have one or more throat colours.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function throat_colours()
+    {
+        return $this->belongsToMany(ThroatColour::class, 'throat_colour_plant');
+    }
+
+    /**
      * A Plant belongs to one Genome type.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
