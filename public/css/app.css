@@ -187,19 +187,22 @@
   margin-right: 16px;
   height: 24px; }
 
+.c-button--block {
+  display: block;
+  text-align: center; }
+
 .c-plant-list {
   margin: 0 0 24px;
   padding: 0; }
 
 .c-plant-list__item {
   padding: 0;
-  border-radius: 8px;
-  max-width: 100%; }
-  @media only screen and (min-width: 1500px) {
+  max-width: 100%;
+  align-items: flex-start;
+  margin: 0 0 24px; }
+  @media only screen and (min-width: 1051px) {
     .c-plant-list__item {
       max-width: 1000px; } }
-  .c-plant-list__item:not(:last-child) {
-    margin: 0 0 16px; }
   .c-plant-list__item:hover .c-plant-list__detail {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
     border-color: #99cc99;
@@ -211,26 +214,34 @@
   flex: 1 1 auto;
   border: 1px solid #ddd;
   border-radius: 8px;
-  transition: box-shadow 0.3s ease-in-out;
-  display: flex;
-  flex-wrap: wrap; }
+  transition: box-shadow 0.3s ease-in-out; }
 
 .c-plant-list__content {
   border-radius: 0 0 0 8px;
-  flex: 1 0 100%; }
+  flex: 1 0 100%;
+  flex-wrap: wrap; }
 
 .c-plant-list__description {
-  flex: 1 1 auto;
-  padding: 8px 16px;
-  background-color: #fff;
-  border-radius: 0 0 0 8px; }
-
-.c-plant-list__stock {
-  flex: 0 0 200px;
-  border-radius: 0 0 8px 0;
-  border-left: 1px solid #ddd;
+  flex: 1 1 100%;
   padding: 8px 16px;
   background-color: #fff; }
+  @media only screen and (min-width: 1051px) {
+    .c-plant-list__description {
+      flex: 0 1 calc(100% - 215px);
+      border-radius: 0 0 0 8px; } }
+
+.c-plant-list__stock {
+  flex: 1 1 100%;
+  border-top: 1px solid #ddd;
+  border-radius: 0 0 8px 8px;
+  padding: 8px 16px;
+  background-color: #fff; }
+  @media only screen and (min-width: 1051px) {
+    .c-plant-list__stock {
+      flex: 0 0 150px;
+      border-top: none;
+      border-left: 1px solid #ddd;
+      border-radius: 0 0 8px 0; } }
 
 .c-plant-list__header {
   display: flex;
@@ -483,6 +494,6 @@
 .c-plant-view-controls {
   margin: 32px 0;
   max-width: 100%; }
-  @media only screen and (min-width: 1500px) {
+  @media only screen and (min-width: 1051px) {
     .c-plant-view-controls {
       max-width: 1000px; } }

@@ -1,3 +1,6 @@
+$stockWidth: 150px;
+$stockFlexWidth: $stockWidth + ($defaultUnit * 8) + 1;
+
 .c-plant-list {
     margin: 0 0 ($defaultUnit * 3);
     padding: 0;
@@ -5,15 +8,12 @@
 
 .c-plant-list__item {
     padding: 0;
-    border-radius: $defaultUnit;
     max-width: 100%;
+    align-items: flex-start;
+    margin: 0 0 ($defaultUnit * 3);
 
-    @include xl() {
+    @include lg-up() {
         max-width: 1000px;
-    }
-
-    &:not(:last-child) {
-        margin: 0 0 ($defaultUnit * 2);
     }
 
     &:hover {
@@ -34,28 +34,38 @@
     border: 1px solid $borderColour;
     border-radius: $defaultUnit;
     transition: box-shadow 0.3s ease-in-out;
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .c-plant-list__content {
     border-radius: 0 0 0 $defaultUnit;
     flex: 1 0 100%;
+    flex-wrap: wrap;
 }
 
 .c-plant-list__description {
-    flex: 1 1 auto;
+    flex: 1 1 100%;
     padding: $defaultUnit ($defaultUnit * 2);
     background-color: $cardBackgroundColour;
-    border-radius: 0 0 0 $defaultUnit;
+
+    @include lg-up() {
+        flex: 0 1 calc(100% - #{$stockFlexWidth});
+        border-radius: 0 0 0 $defaultUnit;
+    }
 }
 
 .c-plant-list__stock {
-    flex: 0 0 200px;
-    border-radius: 0 0 $defaultUnit 0;
-    border-left: 1px solid $borderColour;
+    flex: 1 1 100%;
+    border-top: 1px solid $borderColour;
+    border-radius: 0 0 $defaultUnit $defaultUnit;
     padding: $defaultUnit ($defaultUnit * 2);
     background-color: $cardBackgroundColour;
+
+    @include lg-up() {
+        flex: 0 0 $stockWidth;
+        border-top: none;
+        border-left: 1px solid $borderColour;
+        border-radius: 0 0 $defaultUnit 0;
+    }
 }
 
 .c-plant-list__header {

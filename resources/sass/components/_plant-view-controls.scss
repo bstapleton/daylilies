@@ -2,7 +2,7 @@
     margin: ($defaultUnit * 4) 0;
     max-width: 100%;
 
-    @include xl() {
+    @include lg-up() {
         max-width: 1000px;
     }
 }
