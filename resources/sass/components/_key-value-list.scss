@@ -6,6 +6,14 @@
 
     &:hover {
         border-color: $brandLight;
+
+        .c-key-value-list__key {
+            flex: 1 0 calc(40% - #{$defaultUnit});
+        }
+
+        .c-key-value-list__value {
+            flex: 1 0 calc(60% - (#{$defaultUnit} * 3));
+        }
     }
 }
 
@@ -17,6 +25,7 @@
     background-color: $borderColour;
     text-align: right;
     border-radius: ($defaultUnit * 0.5) 0 0 ($defaultUnit * 0.5);
+    transition: flex 0.1s ease-in-out;
 }
 
 .c-key-value-list__value {
@@ -25,4 +34,5 @@
     flex: 1 0 calc(60% - (#{$defaultUnit} * 2));
     background-color: $cardBackgroundColour;
     border-radius: 0 ($defaultUnit * 0.5) ($defaultUnit * 0.5) 0;
+    transition: flex 0.1s ease-in-out;
 }

@@ -425,6 +425,10 @@
   transition: border 0.1s ease-in-out; }
   .c-key-value-list__item:hover {
     border-color: #99cc99; }
+    .c-key-value-list__item:hover .c-key-value-list__key {
+      flex: 1 0 calc(40% - 8px); }
+    .c-key-value-list__item:hover .c-key-value-list__value {
+      flex: 1 0 calc(60% - (8px * 3)); }
 
 .c-key-value-list__key {
   display: block;
@@ -433,14 +437,16 @@
   color: #006600;
   background-color: #ddd;
   text-align: right;
-  border-radius: 4px 0 0 4px; }
+  border-radius: 4px 0 0 4px;
+  transition: flex 0.1s ease-in-out; }
 
 .c-key-value-list__value {
   display: block;
   padding: 8px;
   flex: 1 0 calc(60% - (8px * 2));
   background-color: #fff;
-  border-radius: 0 4px 4px 0; }
+  border-radius: 0 4px 4px 0;
+  transition: flex 0.1s ease-in-out; }
 
 .c-field {
   border: 1px solid #ddd;
