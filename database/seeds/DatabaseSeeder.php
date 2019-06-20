@@ -22,6 +22,9 @@ class DatabaseSeeder extends Seeder
             GenomesTableSeeder::class,
             PlantsTableSeeder::class,
             SeasonsTableSeeder::class,
+            FlowerColoursTableSeeder::class,
+            ThroatColoursTableSeeder::class,
+            StamenColoursTableSeeder::class,
             UsersTableSeeder::class,
 
             BreederPlantTableSeeder::class,

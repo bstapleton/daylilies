@@ -185,6 +185,39 @@ class PlantCrudController extends CrudController
         ]);
 
         $this->crud->addField([
+            'name' => 'flower_colours',
+            'type' => 'select2_multiple',
+            'label' => 'Flower colour(s)',
+            'entity' => 'flower_colours',
+            'attribute' => 'name',
+            'model' => 'App\Models\FlowerColour',
+            'pivot' => true,
+            'tab' => 'Plant details'
+        ]);
+
+        $this->crud->addField([
+            'name' => 'throat_colours',
+            'type' => 'select2_multiple',
+            'label' => 'Throat colour(s)',
+            'entity' => 'throat_colours',
+            'attribute' => 'name',
+            'model' => 'App\Models\ThroatColour',
+            'pivot' => true,
+            'tab' => 'Plant details'
+        ]);
+
+        $this->crud->addField([
+            'name' => 'stamen_colours',
+            'type' => 'select2_multiple',
+            'label' => 'Stamen colour(s)',
+            'entity' => 'stamen_colours',
+            'attribute' => 'name',
+            'model' => 'App\Models\StamenColour',
+            'pivot' => true,
+            'tab' => 'Plant details'
+        ]);
+
+        $this->crud->addField([
             'name' => 'price',
             'type' => 'number',
             'label' => 'Price',
