@@ -418,6 +418,9 @@
   .c-stats-table td {
     padding: 8px; }
 
+.c-key-value-list {
+  margin-bottom: 24px; }
+
 .c-key-value-list__item {
   border: 1px solid #ddd;
   border-radius: 4px;

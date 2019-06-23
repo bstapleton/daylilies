@@ -93,6 +93,7 @@
             @endforeach
         </li>
     </ul>
+    <a href="{{ request()->headers->get('referer') }}" class="c-button c-button--default">Back</a>
 @endsection
 
 @section('layout-footer')
