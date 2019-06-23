@@ -22,9 +22,14 @@
             <span class="c-key-value-list__key" itemprop="name">Category</span>
             <a href="{{ URL::route('plants.category', strtolower($plant->category->name)) }}" class="c-key-value-list__value h-anchor--branded" itemprop="value">{{ $plant->category->name }} flowered</a>
         </li>
+
         <li class="h-flex c-key-value-list__item" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
             <span class="c-key-value-list__key" itemprop="name">Registered</span>
-            <span class="c-key-value-list__value" itemprop="value">{{ $plant->year_bred }}</span>
+            @if ($plant->year_bred == 0)
+                <span class="c-key-value-list__value" itemprop="value"><em>Unknown</em></span>
+            @else
+                <span class="c-key-value-list__value" itemprop="value">{{ $plant->year_bred }}</span>
+            @endif
         </li>
         <li class="h-flex c-key-value-list__item" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
             <span class="c-key-value-list__key" itemprop="name">Ploidy</span>
@@ -46,6 +51,9 @@
         </li>
         <li class="h-flex c-key-value-list__item" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
             <span class="c-key-value-list__key">Hybridiser</span>
+            @if(count($plant->breeders) == 0)
+                <span class="c-key-value-list__value" itemprop="value"><em>Unregistered</em></span>
+            @endif
             @foreach ($plant->breeders as $breeder)
                 @if ($loop->count == 1)
                     <a href="{{ URL::route('breeder', $breeder->slug) }}" class="c-key-value-list__value h-anchor--branded" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
