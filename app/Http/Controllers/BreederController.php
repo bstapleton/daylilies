@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Plant;
+use App\Breeder;
+use Illuminate\Support\Facades\Input;
 
 /**
  * Class BreederController
  * @package App\Http\Controllers
  */
-class BreederController extends Controller
+class BreederController extends BaseController
 {
     /**
      * Get all plants by the requested breeder, redirecting to an error if that breeder is not found.
@@ -17,20 +19,37 @@ class BreederController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function listPlants(string $slug) {
-        // TODO: currently borked after the data normalisation!
-        $plants = Plant::where('slug', $slug)
-            ->orderBy('name', 'asc')->get();
+        $paginationCount = request('display') == 'grid' ? self::GRID_RESULTS : self::LIST_RESULTS;
 
-        if ($plants->count() < 1) {
+        $plants = Plant::whereHas('breeders', function($query) use ($slug) {
+            $query->whereSlug($slug);
+        })->orderBy('name')->paginate($paginationCount);
+
+        if ($plants->count() < 1)
+        {
             return view('error', ['category' => 'Breeder Request', 'request' => $slug]);
         }
 
-        $humanFriendlyBreederName = $plants->first()->breeder;
+        foreach ($plants as $plant)
+        {
+            $plant->heightInCm = $this->convertInchesToCentimetres($plant->height);
+            $plant->flowerInCm = $this->convertInchesToCentimetres($plant->flower_size);
+            $plant->thumbnail = $this->getThumbnailFromSlug($plant->slug);
+            $plant->icon = $this->getStatusIcon($plant->in_stock, $plant->year_added);
+        }
 
-        return view('plants-list', [
+        $breeder = Breeder::where('slug', $slug)->first();
+
+        $view = request('display') == 'grid' ? 'plants-grid' : 'plants-list';
+
+        return view($view, [
             'plants' => $plants,
-            'category' => $humanFriendlyBreederName,
-            'title' => 'Daylilies by ' . $humanFriendlyBreederName
+            'pageNumberGrid' => $this->getPageNumber(Input::get('page'), false),
+            'pageNumberList' => $this->getPageNumber(Input::get('page'), true),
+            'isCategoryView' => false,
+            'pageHeading' => 'Daylilies by ' . $breeder->full_name,
+            'title' => 'Daylilies by ' . $breeder->full_name,
+            'metaDescription' => 'Daylilies hybridised by ' . $breeder->full_name
         ]);
     }
 }
