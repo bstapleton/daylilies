@@ -32,10 +32,7 @@ class BreederController extends BaseController
 
         foreach ($plants as $plant)
         {
-            $plant->heightInCm = $this->convertInchesToCentimetres($plant->height);
-            $plant->flowerInCm = $this->convertInchesToCentimetres($plant->flower_size);
-            $plant->thumbnail = $this->getThumbnailFromSlug($plant->slug);
-            $plant->icon = $this->getStatusIcon($plant->in_stock, $plant->year_added);
+            $this->parsePlantData($plant);
         }
 
         $breeder = Breeder::where('slug', $slug)->first();

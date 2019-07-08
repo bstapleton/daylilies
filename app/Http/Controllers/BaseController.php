@@ -107,4 +107,14 @@ class BaseController extends Controller
 
         return null;
     }
+
+    protected function parsePlantData($plant)
+    {
+        $plant->heightInCm = $this->convertInchesToCentimetres($plant->height);
+        $plant->flowerInCm = $this->convertInchesToCentimetres($plant->flower_size);
+        $plant->thumbnail = $this->getThumbnailFromSlug($plant->slug);
+        $plant->icon = $this->getStatusIcon($plant->in_stock, $plant->year_added);
+
+        return $plant;
+    }
 }
