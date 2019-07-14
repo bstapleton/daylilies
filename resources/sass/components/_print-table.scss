@@ -1,0 +1,46 @@
+.c-printTable {
+    border-collapse: collapse;
+    border-spacing: unset;
+    width: 100%;
+    margin-bottom: $defaultUnit;
+}
+
+.c-printTable__logo {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 92px;
+    margin-bottom: $defaultUnit;
+}
+
+.c-printTable__quantity {
+    width: 10%;
+}
+
+c-printTable__plantChoice {
+    width: 30%;
+}
+
+.c-printTable__price {
+    width: 15%;
+}
+
+.c-printTable__total {
+    width: 15%;
+}
+
+.c-printTable__heading {
+    text-align: center;
+    border: 1px solid $defaultText;
+    padding: 2px $defaultUnit;
+}
+
+.c-printTable__cell {
+    border: 1px solid $defaultText;
+    padding: 2px $defaultUnit;
+}
+
+.c-printTable__footerCell {
+    border-left: none;
+    border-bottom: none;
+}

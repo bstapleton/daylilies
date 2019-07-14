@@ -47,6 +47,24 @@
 .h-anchor--branded {
   color: #006600; }
 
+.h-textAlign--right {
+  text-align: right; }
+
+.h-textAlign--center {
+  text-align: center; }
+
+.h-text--larger {
+  font-size: 120%; }
+
+.h-text--largest {
+  font-size: 150%; }
+
+.h-text--italic {
+  font-style: italic; }
+
+.h-text--bold {
+  fonr-weight: 700; }
+
 .l-body {
   font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;

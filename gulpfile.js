@@ -8,5 +8,8 @@ gulp.task("default", function(done) {
     gulp.src(inputPath + "/app.scss")
         .pipe(sass().on("error", sass.logError))
         .pipe(gulp.dest(outputPath));
+    gulp.src(inputPath + "/print.scss")
+        .pipe(sass().on("error", sass.logError))
+        .pipe(gulp.dest(outputPath));
     done();
 });
