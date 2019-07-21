@@ -19,3 +19,9 @@
 // Components
 @import 'components/print-table';
 @import 'components/card';
+
+@media print {
+    .c-card {
+        border: 2px solid $brandDark;
+    }
+}

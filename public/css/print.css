@@ -129,3 +129,7 @@ c-printTable__plantChoice {
 .c-card--dark {
   background-color: #006600;
   color: #fff; }
+
+@media print {
+  .c-card {
+    border: 2px solid #006600; } }
