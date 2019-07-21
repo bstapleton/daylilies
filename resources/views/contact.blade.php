@@ -23,7 +23,7 @@
             </address>
         </div>
         <div class="c-card c-card--light">
-            <p>We can also be reached by phone between 9am and 5pm on the following number:<br />
+            <p>We can also be reached by phone between <span itemprop="openingHours" content="Mo-Su 9:00-17:00">9am and 5pm</span> on the following number:<br />
                 <span itemprop="telephone">(+44) 01983 730512</span></p>
         </div>
     </div>
