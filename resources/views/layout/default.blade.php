@@ -18,7 +18,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
 </head>
-<body class="l-body">
+<body class="l-body h-flex h-flex--column">
     @section('layout-header')
         <div class="l-site-header">
             <h1 class="l-site-header__title h-heading">A La Carte Daylilies</h1>
@@ -31,7 +31,7 @@
         </div>
     @show
 
-    <div class="h-flex">
+    <div class="h-flex h-flex--grow">
         <div class="l-sidebar-navigation">
             <ul class="l-sidebar-navigation__list h-list--unstyled h-no-margin h-no-padding">
                 <li class="l-sidebar-navigation__item">

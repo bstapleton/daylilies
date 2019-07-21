@@ -7,6 +7,9 @@
 .h-flex--row {
   flex-direction: row; }
 
+.h-flex--grow {
+  flex: 1; }
+
 .h-flex-wrap {
   flex-wrap: wrap; }
 
