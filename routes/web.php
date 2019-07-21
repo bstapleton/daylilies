@@ -5,7 +5,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/contact', function () {
-    return view('contact-us');
+    return view('contact');
 })->name('contact-us');
 
 Route::get('/order-form', function () {
