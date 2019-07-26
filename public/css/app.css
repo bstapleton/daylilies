@@ -292,7 +292,7 @@
   font-weight: normal;
   margin: 0;
   padding: 8px 16px;
-  color: #006600; }
+  color: #222; }
 
 .c-plant-list__title--out {
   color: #fff; }
@@ -397,7 +397,7 @@
 
 .c-card--light {
   background-color: #99cc99;
-  color: #006600; }
+  color: #222; }
 
 .c-card--dark {
   background-color: #006600;

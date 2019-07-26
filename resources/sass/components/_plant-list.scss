@@ -103,7 +103,7 @@ $stockFlexWidth: $stockWidth + ($defaultUnit * 8) + 1;
     font-weight: normal;
     margin: 0;
     padding: $defaultUnit $defaultUnit * 2;
-    color: $brandDark;
+    color: $defaultText;
 }
 
 .c-plant-list__title--out {

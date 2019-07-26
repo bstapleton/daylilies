@@ -24,7 +24,7 @@
                     @if ($page == $paginator->currentPage())
                         <li class="c-pagination__item c-pagination__item--active h-list--horizontal__item" aria-current="page"><span class="c-pagination__link c-pagination__link--active">{{ $page }}</span></li>
                     @else
-                        <li class="c-pagination__item h-list--horizontal__item"><a class="c-pagination__link" href="{{ $url }}">{{ $page }}</a></li>
+                        <li class="c-pagination__item h-list--horizontal__item"><a class="c-pagination__link" href="{{ $url }}" aria-label="Go to page {{ $page }}">{{ $page }}</a></li>
                     @endif
                 @endforeach
             @endif
