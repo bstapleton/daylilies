@@ -12,7 +12,7 @@
                 <article class="h-flex c-plant-list__item" itemscope itemtype="http://schema.org/Product">
                     <link itemprop="additionalType" href="http://www.productontology.org/id/Plant" />
                     <div class="c-plant-list__thumbnail">
-                        <a href="{{ URL::route('plants.view', $plant->slug) }}" title="View details for {{ $plant->name }}"><img class="c-plant-list__image" itemprop="image" loading="lazy" src="{{ $plant->thumbnail }}" alt="" /></a>
+                        <a href="{{ URL::route('plants.view', $plant->slug) }}" title="View details for {{ $plant->name }}"><img class="c-plant-list__image" itemprop="image" loading="lazy" src="{{ $plant->thumbnail }}" alt="{{ $plant->name }}" /></a>
                     </div>
                     <div class="c-plant-list__detail">
                         <header class="c-plant-list__header{{ $plant->year_added > (Date('Y') - 1) ? ' c-plant-list__header--new' : null }}{{ !$plant->in_stock ? ' c-plant-list__header--out' : null }}">

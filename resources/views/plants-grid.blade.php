@@ -11,7 +11,7 @@
             <article class="h-list--unstyled c-plant-grid__item h-flex h-flex--column" itemscope itemtype="http://schema.org/Product">
                 <link itemprop="additionalType" href="http://www.productontology.org/id/Plant" />
                 <div class="c-plant-grid__thumbnail">
-                    <a href="{{ URL::route('plants.view', $plant->slug) }}" title="View details for {{ $plant->name }}"><img class="c-plant-grid__image" itemprop="image" loading="lazy" src="{{ $plant->thumbnail }}" alt="" /></a>
+                    <a href="{{ URL::route('plants.view', $plant->slug) }}" title="View details for {{ $plant->name }}"><img class="c-plant-grid__image" itemprop="image" loading="lazy" src="{{ $plant->thumbnail }}" alt="{{ $plant->name }}" /></a>
                 </div>
                 <div class="c-plant-grid__detail">
                     <h2 itemprop="name" class="c-plant-grid__title h-no-margin h-no-padding">
