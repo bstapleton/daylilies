@@ -7,7 +7,10 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\PlantRequest as StoreRequest;
 use App\Http\Requests\PlantRequest as UpdateRequest;
-use Backpack\CRUD\CrudPanel;
+use Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
+use Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+use Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
+use Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
 
 /**
  * Class PlantCrudController
@@ -16,6 +19,11 @@ use Backpack\CRUD\CrudPanel;
  */
 class PlantCrudController extends CrudController
 {
+    use ListOperation;
+    use CreateOperation;
+    use UpdateOperation;
+    use DeleteOperation;
+
     /**
      * Sets up the CRUD form for a Plant.
      */
@@ -278,7 +286,7 @@ class PlantCrudController extends CrudController
     {
         $request->request->set('slug', $this->slugify($request->request->get('name')));
         $request->request->set('year_added', date('Y'));
-        $redirect_location = parent::storeCrud($request);
+        $redirect_location = $this->store($request);
 
         return $redirect_location;
     }
@@ -292,7 +300,7 @@ class PlantCrudController extends CrudController
     public function update(UpdateRequest $request)
     {
         $request->request->set('slug', $this->slugify($request->request->get('name')));
-        $redirect_location = parent::updateCrud($request);
+        $redirect_location = $this->update($request);
 
         return $redirect_location;
     }

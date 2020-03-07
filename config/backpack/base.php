@@ -149,5 +149,5 @@ return [
     |
     */
 
-    'license_code' => env('BACKPACK_LICENSE', false),
+    'license_code' => 'DAX6-DV6F-7D57-GFE9-65AD-1621',
 ];

@@ -11,7 +11,7 @@ Route::group([
     'middleware' => ['web', config('backpack.base.middleware_key', 'admin')],
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () { // custom admin routes
-    CRUD::resource('breeder', 'BreederCrudController');
-    CRUD::resource('plant', 'PlantCrudController');
-    CRUD::resource('category', 'CategoryCrudController');
+    Route::crud('breeder', 'BreederCrudController');
+    Route::crud('plant', 'PlantCrudController');
+    Route::crud('category', 'CategoryCrudController');
 }); // this should be the absolute last line of this file
