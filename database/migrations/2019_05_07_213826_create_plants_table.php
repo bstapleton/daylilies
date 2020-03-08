@@ -21,7 +21,7 @@ class CreatePlantsTable extends Migration
             $table->string('name')->unique()->index();
             $table->string('slug')->unique();
             $table->smallInteger('category_id');
-            $table->smallInteger('year_bred')->nullable();
+            $table->smallInteger('year_hybridised')->nullable();
             $table->smallInteger('year_added')->nullable()->index();
             $table->text('description')->nullable();
             $table->float('height')->nullable();

@@ -17,4 +17,9 @@
     &:first-child {
         margin-left: 0;
     }
+
+    svg {
+        height: $defaultUnit * 3;
+        margin-right: $defaultUnit
+    }
 }

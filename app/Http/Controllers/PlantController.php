@@ -74,7 +74,10 @@ class PlantController extends BaseController
             'isNewPlantsGrid' => true,
             'pageHeading' => 'Newest daylilies in the website catalogue',
             'title' => 'Newest additions',
-            'metaDescription' => 'Latest daylily additions to the website catalogue across all categories.'
+            'metaDescription' => 'Latest daylily additions to the website catalogue across all categories.',
+            'thisYearIcon' => $this->getThisYearIcon(),
+            'lastYearIcon' => $this->getLastYearIcon(),
+            'outOfStockIcon' => $this->getOutOfStockIcon()
         ]);
     }
 
@@ -109,7 +112,10 @@ class PlantController extends BaseController
             'pageNumberList' => $this->getPageNumber(Input::get('page'), true),
             'isCategoryView' => true,
             'title' => $plants->first()->category()->first()->name . ' daylilies',
-            'metaDescription' => $plants->first()->category()->first()->meta_description
+            'metaDescription' => $plants->first()->category()->first()->meta_description,
+            'thisYearIcon' => $this->getThisYearIcon(),
+            'lastYearIcon' => $this->getLastYearIcon(),
+            'outOfStockIcon' => $this->getOutOfStockIcon()
         ]);
     }
 
@@ -139,7 +145,10 @@ class PlantController extends BaseController
             'isCategoryView' => false,
             'pageHeading' => 'Daylilies with ' . $foliage . ' foliage',
             'title' => ucfirst($foliage) . ' daylilies',
-            'metaDescription' => 'Daylilies with ' . $foliage . ' foliage'
+            'metaDescription' => 'Daylilies with ' . $foliage . ' foliage',
+            'thisYearIcon' => $this->getThisYearIcon(),
+            'lastYearIcon' => $this->getLastYearIcon(),
+            'outOfStockIcon' => $this->getOutOfStockIcon()
         ]);
     }
 
@@ -169,7 +178,10 @@ class PlantController extends BaseController
             'isCategoryView' => false,
             'pageHeading' => 'Daylilies that flower ' . str_replace('-', ' ', $season),
             'title' => ucfirst(str_replace('-', ' ', $season)) . ' daylilies',
-            'metaDescription' => 'Daylilies that flower ' . str_replace('-', ' ', $season)
+            'metaDescription' => 'Daylilies that flower ' . str_replace('-', ' ', $season),
+            'thisYearIcon' => $this->getThisYearIcon(),
+            'lastYearIcon' => $this->getLastYearIcon(),
+            'outOfStockIcon' => $this->getOutOfStockIcon()
         ]);
     }
 }

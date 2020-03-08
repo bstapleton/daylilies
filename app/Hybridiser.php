@@ -5,15 +5,15 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Breeder
+ * Class Hybridiser
  * @package App
  */
-class Breeder extends Model
+class Hybridiser extends Model
 {
     /**
      * @var string Table name for this model.
      */
-    protected $table = 'breeders';
+    protected $table = 'hybridisers';
 
     /**
      * @var array Fillable fields for this model.
@@ -21,12 +21,12 @@ class Breeder extends Model
     protected $fillable = ['slug', 'surname', 'full_name', 'biography'];
 
     /**
-     * A Breeder belongs to many Plants.
+     * A Hybridiser belongs to many Plants.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function plants()
     {
-        return $this->belongsToMany(Plant::class, 'breeder_plant');
+        return $this->belongsToMany(Plant::class, 'hybridiser_plant');
     }
 }

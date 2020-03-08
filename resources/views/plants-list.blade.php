@@ -26,10 +26,10 @@
                         <div class="c-plant-list__content h-flex">
                             <div class="c-plant-list__description">
                                 <p itemprop="description">
-                                    @foreach ($plant->breeders as $breeder)
+                                    @foreach ($plant->hybridisers as $hybridiser)
                                         <span itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
                                             <meta itemprop="name" content="Hybridiser">
-                                            <span itemprop="value">{{ $breeder->full_name }}</span>
+                                            <span itemprop="value">{{ $hybridiser->full_name }}</span>
                                         </span>
                                         @if ($loop->remaining > 0)
                                             &amp;
@@ -37,7 +37,7 @@
                                     @endforeach
                                     <span itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
                                         <meta itemprop="name" content="Year introduced">
-                                        (<span itemprop="value">{{ $plant->year_bred }}</span>)
+                                        (<span itemprop="value">{{ $plant->year_hybridised }}</span>)
                                     </span>
                                     {{ $plant->description }}
                                 </p>

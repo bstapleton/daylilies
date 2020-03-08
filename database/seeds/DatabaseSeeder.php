@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            BreedersTableSeeder::class,
+            HybridisersTableSeeder::class,
             CategoriesTableSeeder::class,
             FoliagesTableSeeder::class,
             FormsTableSeeder::class,
@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             StamenColoursTableSeeder::class,
             UsersTableSeeder::class,
 
-            BreederPlantTableSeeder::class,
+            HybridiserPlantTableSeeder::class,
             SeasonPlantTableSeeder::class
         ]);
     }

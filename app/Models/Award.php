@@ -5,10 +5,10 @@ namespace App\Models;
 use Backpack\CRUD\CrudTrait;
 
 /**
- * Class Breeder
+ * Class Award
  * @package App\Models
  */
-class Breeder extends \App\Breeder
+class Award extends \App\Award
 {
     use CrudTrait;
 }

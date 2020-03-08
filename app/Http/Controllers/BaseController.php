@@ -108,6 +108,21 @@ class BaseController extends Controller
         return null;
     }
 
+    protected function getThisYearIcon()
+    {
+        return base64_decode(self::NEW_ICON);
+    }
+
+    protected function getLastYearIcon()
+    {
+        return base64_decode(self::ALMOST_NEW_ICON);
+    }
+
+    protected function getOutOfStockIcon()
+    {
+        return base64_decode(self::OUT_ICON);
+    }
+
     protected function parsePlantData($plant)
     {
         $plant->heightInCm = $this->convertInchesToCentimetres($plant->height);

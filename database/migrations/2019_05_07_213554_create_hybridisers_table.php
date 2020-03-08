@@ -5,9 +5,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Class CreateBreedersTable
+ * Class CreateHybridisersTable
  */
-class CreateBreedersTable extends Migration
+class CreateHybridisersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,7 @@ class CreateBreedersTable extends Migration
      */
     public function up()
     {
-        Schema::create('breeders', function (Blueprint $table) {
+        Schema::create('hybridisers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug')->unique();
             $table->string('surname')->index();
@@ -34,6 +34,6 @@ class CreateBreedersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('breeders');
+        Schema::dropIfExists('hybridisers');
     }
 }

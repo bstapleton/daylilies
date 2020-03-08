@@ -5,9 +5,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Class CreateBreederPlantTable
+ * Class CreateHybridiserPlantTable
  */
-class CreateBreederPlantTable extends Migration
+class CreateHybridiserPlantTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,11 +16,11 @@ class CreateBreederPlantTable extends Migration
      */
     public function up()
     {
-        Schema::create('breeder_plant', function (Blueprint $table) {
-            $table->unsignedInteger('breeder_id');
+        Schema::create('hybridiser_plant', function (Blueprint $table) {
+            $table->unsignedInteger('hybridiser_id');
             $table->unsignedInteger('plant_id');
-            $table->primary(['breeder_id', 'plant_id']);
-            $table->foreign('breeder_id')->references('id')->on('breeders')->onDelete('cascade');
+            $table->primary(['hybridiser_id', 'plant_id']);
+            $table->foreign('hybridiser_id')->references('id')->on('hybridisers')->onDelete('cascade');
             $table->foreign('plant_id')->references('id')->on('plants')->onDelete('cascade');
 
             $table->timestamps = false;

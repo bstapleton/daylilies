@@ -3,31 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Plant;
-use App\Breeder;
+use App\Hybridiser;
 use Illuminate\Support\Facades\Input;
 
 /**
- * Class BreederController
+ * Class HybridiserController
  * @package App\Http\Controllers
  */
-class BreederController extends BaseController
+class HybridiserController extends BaseController
 {
     /**
-     * Get all plants by the requested breeder, redirecting to an error if that breeder is not found.
+     * Get all plants by the requested hybridiser, redirecting to an error if that hybridiser is not found.
      *
-     * @param string $breederSlug
+     * @param string $slug
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function listPlants(string $slug) {
         $paginationCount = request('display') == 'grid' ? self::GRID_RESULTS : self::LIST_RESULTS;
 
-        $plants = Plant::whereHas('breeders', function($query) use ($slug) {
+        $plants = Plant::whereHas('hybridisers', function($query) use ($slug) {
             $query->whereSlug($slug);
         })->orderBy('name')->paginate($paginationCount);
 
         if ($plants->count() < 1)
         {
-            return view('error', ['category' => 'Breeder Request', 'request' => $slug]);
+            return view('error', ['category' => 'Hybridiser Request', 'request' => $slug]);
         }
 
         foreach ($plants as $plant)
@@ -35,7 +35,7 @@ class BreederController extends BaseController
             $this->parsePlantData($plant);
         }
 
-        $breeder = Breeder::where('slug', $slug)->first();
+        $hybridiser = Hybridiser::where('slug', $slug)->first();
 
         $view = request('display') == 'grid' ? 'plants-grid' : 'plants-list';
 
@@ -44,9 +44,9 @@ class BreederController extends BaseController
             'pageNumberGrid' => $this->getPageNumber(Input::get('page'), false),
             'pageNumberList' => $this->getPageNumber(Input::get('page'), true),
             'isCategoryView' => false,
-            'pageHeading' => 'Daylilies by ' . $breeder->full_name,
-            'title' => 'Daylilies by ' . $breeder->full_name,
-            'metaDescription' => 'Daylilies hybridised by ' . $breeder->full_name
+            'pageHeading' => 'Daylilies by ' . $hybridiser->full_name,
+            'title' => 'Daylilies by ' . $hybridiser->full_name,
+            'metaDescription' => 'Daylilies hybridised by ' . $hybridiser->full_name
         ]);
     }
 }

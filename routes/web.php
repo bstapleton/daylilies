@@ -26,4 +26,4 @@ Route::group(['prefix' => 'plants', 'as' => 'plants.'], function() {
 
 
 
-Route::get('/breeder/{breederSlug}', 'BreederController@listPlants')->name('breeder');
+Route::get('/hybridiser/{slug}', 'HybridiserController@listPlants')->name('hybridiser');

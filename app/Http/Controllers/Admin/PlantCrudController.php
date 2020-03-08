@@ -35,16 +35,16 @@ class PlantCrudController extends CrudController
                 'attribute' => 'name',
                 'model' => 'App\Models\Category'
             ],
-            'breeders' => [
-                'name' => 'breeders',
+            'hybridisers' => [
+                'name' => 'hybridisers',
                 'type' => 'select_multiple',
-                'label' => 'Breeder/hybridiser',
-                'entity' => 'breeders',
+                'label' => 'Hybridiser/hybridiser',
+                'entity' => 'hybridisers',
                 'attribute' => 'full_name',
-                'model' => 'App\Models\Breeder'
+                'model' => 'App\Models\Hybridiser'
             ],
-            'year_bred' => [
-                'name' => 'year_bred',
+            'year_hybridised' => [
+                'name' => 'year_hybridised',
                 'label' => 'Registration year'
             ],
             'height' => [
@@ -97,18 +97,18 @@ class PlantCrudController extends CrudController
         ]);
 
         $this->crud->addField([
-            'name' => 'breeders',
+            'name' => 'hybridisers',
             'type' => 'select2_multiple',
-            'label' => 'Breeder/hybridiser',
-            'entity' => 'breeders',
+            'label' => 'Hybridisers/hybridiser',
+            'entity' => 'hybridisers',
             'attribute' => 'full_name',
-            'model' => "App\Models\Breeder",
+            'model' => "App\Models\Hybridiser",
             'pivot' => true,
             'tab' => 'Basic info'
         ]);
 
         $this->crud->addField([
-            'name' => 'year_bred',
+            'name' => 'year_hybridised',
             'type' => 'number',
             'label' => 'Registration year',
             'tab' => 'Basic info'
@@ -213,6 +213,16 @@ class PlantCrudController extends CrudController
             'entity' => 'stamen_colours',
             'attribute' => 'name',
             'model' => 'App\Models\StamenColour',
+            'pivot' => true,
+            'tab' => 'Plant details'
+        ]);
+
+        $this->crud->addField([
+            'name' => 'award',
+            'type' => 'select2_multiple',
+            'entity' => 'awards',
+            'attribute' => 'name',
+            'model' => 'App\Models\Award',
             'pivot' => true,
             'tab' => 'Plant details'
         ]);

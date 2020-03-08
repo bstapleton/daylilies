@@ -44,7 +44,12 @@
     </div>
 @endisset
 @isset($pageNumberList)
-<div class="c-plant-view-controls">
+<div class="c-plant-view-controls h-flex">
+    <ul class="h-list--horizontal h-list--unstyled h-flex--align-center h-flex--grow h-no-padding">
+        <li class="h-list--horizontal__item h-flex h-flex--align-center"><span class="h-text--bold h-margin-right__default">Key:</span> {!! $thisYearIcon !!} New for {{ date('Y') }}</li>
+        <li class="h-list--horizontal__item h-flex h-flex--align-center">{!! $lastYearIcon !!} Added in {{ date('Y') - 1 }}</li>
+        <li class="h-list--horizontal__item h-flex h-flex--align-center">{!! $outOfStockIcon !!} Out of stock</li>
+    </ul>
     <ul class="h-list--horizontal h-list--unstyled h-flex--align-center h-flex--justify-right h-no-padding">
         <li class="h-list--horizontal__item">View as:</li>
         <li class="h-list--horizontal__item">

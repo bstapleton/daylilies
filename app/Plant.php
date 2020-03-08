@@ -24,7 +24,7 @@ class Plant extends Model
     /**
      * @var array Editable fields for this model.
      */
-    protected $fillable = ['slug', 'name', 'category_id', 'year_added', 'breeders', 'year_bred', 'height', 'flower_size', 'genome_id', 'foliage_id', 'seasons', 'forms', 'description', 'in_stock', 'price', 'quantity_in_stock'];
+    protected $fillable = ['slug', 'name', 'category_id', 'year_added', 'hybridisers', 'year_registered', 'height', 'flower_size', 'genome_id', 'foliage_id', 'seasons', 'forms', 'description', 'in_stock', 'price', 'quantity_in_stock'];
 
     /**
      * A Plant belongs to one Category.
@@ -37,14 +37,14 @@ class Plant extends Model
     }
 
     /**
-     * A Plant can have many Breeders. The vast majority have one, but they are jointly hybridised between two breeders
+     * A Plant can have many Hybridisers. The vast majority have one, but they are jointly hybridised between two hybridisers
      * occasionally.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function breeders()
+    public function hybridisers()
     {
-        return $this->belongsToMany(Breeder::class, 'breeder_plant');
+        return $this->belongsToMany(Hybridiser::class, 'hybridiser_plant');
     }
 
     /**
@@ -126,5 +126,15 @@ class Plant extends Model
     public function rows()
     {
         return $this->hasMany(Row::class);
+    }
+
+    /**
+     * A Plant can have many Awards.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function awards()
+    {
+        return $this->belongsToMany(Award::class, 'award_plant');
     }
 }

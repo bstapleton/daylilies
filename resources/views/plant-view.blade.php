@@ -25,10 +25,10 @@
 
         <li class="h-flex c-key-value-list__item" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
             <span class="c-key-value-list__key" itemprop="name">Registered</span>
-            @if ($plant->year_bred == 0)
+            @if ($plant->year_hybridised == 0)
                 <span class="c-key-value-list__value" itemprop="value"><em>Unknown</em></span>
             @else
-                <span class="c-key-value-list__value" itemprop="value">{{ $plant->year_bred }}</span>
+                <span class="c-key-value-list__value" itemprop="value">{{ $plant->year_hybridised }}</span>
             @endif
         </li>
         <li class="h-flex c-key-value-list__item" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
@@ -51,21 +51,21 @@
         </li>
         <li class="h-flex c-key-value-list__item" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
             <span class="c-key-value-list__key">Hybridiser</span>
-            @if(count($plant->breeders) == 0)
+            @if(count($plant->hybridisers) == 0)
                 <span class="c-key-value-list__value" itemprop="value"><em>Unregistered</em></span>
             @endif
-            @foreach ($plant->breeders as $breeder)
+            @foreach ($plant->hybridisers as $hybridiser)
                 @if ($loop->count == 1)
-                    <a href="{{ URL::route('breeder', $breeder->slug) }}" class="c-key-value-list__value h-anchor--branded" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+                    <a href="{{ URL::route('hybridiser', $hybridiser->slug) }}" class="c-key-value-list__value h-anchor--branded" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
                         <meta itemprop="name" content="Hybridiser">
-                        <span itemprop="value" title="View all daylilies hybridised by {{ $breeder->full_name }}">{{ $breeder->full_name }}</span>
+                        <span itemprop="value" title="View all daylilies hybridised by {{ $hybridiser->full_name }}">{{ $hybridiser->full_name }}</span>
                     </a>
                 @else
                     @if ($loop->iteration == 1)
                     <span class="c-key-value-list__value" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
                     @endif
                         <meta itemprop="name" content="Hybridiser">
-                        <a itemprop="value" href="{{ URL::route('breeder', $breeder->slug) }}" class="h-anchor--branded" title="View all daylilies hybridised by {{ $breeder->full_name }}">{{ $breeder->full_name }}</a>{{ $loop->remaining > 0 ? ', ' : null }}
+                        <a itemprop="value" href="{{ URL::route('hybridiser', $hybridiser->slug) }}" class="h-anchor--branded" title="View all daylilies hybridised by {{ $hybridiser->full_name }}">{{ $hybridiser->full_name }}</a>{{ $loop->remaining > 0 ? ', ' : null }}
                     @if ($loop->remaining == 0)
                     </span>
                     @endif

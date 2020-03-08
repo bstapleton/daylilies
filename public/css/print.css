@@ -30,6 +30,9 @@
   margin: 4px 0 4px 8px; }
   .h-list--horizontal__item:first-child {
     margin-left: 0; }
+  .h-list--horizontal__item svg {
+    height: 24px;
+    margin-right: 8px; }
 
 .h-heading {
   font-family: "Great Vibes", cursive;
@@ -43,6 +46,12 @@
 
 .h-margin-left__double {
   margin-left: 16px; }
+
+.h-margin-right__default {
+  margin-right: 8px; }
+
+.h-margin-right__double {
+  margin-right: 16px; }
 
 .h-no-padding {
   padding: 0; }
@@ -66,7 +75,7 @@
   font-style: italic; }
 
 .h-text--bold {
-  fonr-weight: 700; }
+  font-weight: 700; }
 
 .l-orderForm {
   max-width: 1000px;

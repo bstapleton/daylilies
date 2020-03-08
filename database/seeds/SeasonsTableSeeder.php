@@ -16,15 +16,11 @@ class SeasonsTableSeeder extends Seeder
     public function run()
     {
         DB::table('seasons')->insert([
-            'name' => 'Early season'
-        ]);
-
-        DB::table('seasons')->insert([
-            'name' => 'Midseason'
-        ]);
-
-        DB::table('seasons')->insert([
-            'name' => 'Late season'
+            [ 'name' => 'Very early' ],
+            [ 'name' => 'Early' ],
+            [ 'name' => 'Mid' ],
+            [ 'name' => 'Late' ],
+            [ 'name' => 'Very late' ]
         ]);
     }
 }

@@ -5,25 +5,25 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\BreederRequest as StoreRequest;
-use App\Http\Requests\BreederRequest as UpdateRequest;
+use App\Http\Requests\HybridiserRequest as StoreRequest;
+use App\Http\Requests\HybridiserRequest as UpdateRequest;
 use Backpack\CRUD\CrudPanel;
 
 /**
- * Class BreederCrudController
+ * Class HybridiserCrudController
  * @package App\Http\Controllers\Admin
  * @property-read CrudPanel $crud
  */
-class BreederCrudController extends CrudController
+class HybridiserCrudController extends CrudController
 {
     /**
-     * Sets up the CRUD form for a Breeder.
+     * Sets up the CRUD form for a Hybridiser.
      */
     public function setup()
     {
-        $this->crud->setModel('App\Models\Breeder');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/breeder');
-        $this->crud->setEntityNameStrings('breeder', 'breeders');
+        $this->crud->setModel('App\Models\Hybridiser');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/hybridiser');
+        $this->crud->setEntityNameStrings('hybridiser', 'hybridisers');
 
         $this->crud->setColumns([
             'full_name' => ['name' => 'full_name', 'label' => 'Full name'],
@@ -51,7 +51,7 @@ class BreederCrudController extends CrudController
     /**
      * Parses an exploded slug string into a specific standard for displaying a full name.
      *
-     * @param $nameArray array from the slug of the breeder name.
+     * @param $nameArray array from the slug of the hybridiser name.
      * @return string the full name standardised to the format Surname, X.X.
      */
     protected function handleInitials($nameArray) {
@@ -71,7 +71,7 @@ class BreederCrudController extends CrudController
     }
 
     /**
-     * Creates the Breeder record.
+     * Creates the Hybridiser record.
      *
      * @param UpdateRequest $request
      * @return \Illuminate\Http\RedirectResponse
@@ -87,7 +87,7 @@ class BreederCrudController extends CrudController
     }
 
     /**
-     * Updates an existing Breeder record.
+     * Updates an existing Hybridiser record.
      *
      * @param UpdateRequest $request
      * @return \Illuminate\Http\RedirectResponse
