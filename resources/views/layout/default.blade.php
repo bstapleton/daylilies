@@ -15,7 +15,11 @@
     @endisset
     <meta name="theme-color" content="#006600">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @env('production')
+        <link href="{{ asset('css/dist/app.css') }}" rel="stylesheet">
+    @else
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @endenv
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
 </head>
 <body class="l-body h-flex h-flex--column">
