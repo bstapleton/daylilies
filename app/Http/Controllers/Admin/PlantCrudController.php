@@ -218,16 +218,6 @@ class PlantCrudController extends CrudController
         ]);
 
         $this->crud->addField([
-            'name' => 'award',
-            'type' => 'select2_multiple',
-            'entity' => 'awards',
-            'attribute' => 'name',
-            'model' => 'App\Models\Award',
-            'pivot' => true,
-            'tab' => 'Plant details'
-        ]);
-
-        $this->crud->addField([
             'name' => 'price',
             'type' => 'number',
             'label' => 'Price',
