@@ -1,12 +1,13 @@
 {
     "private": true,
     "devDependencies": {
-        "sass": "^1.15.2",
-        "sass-loader": "^7.1.0"
+        "sass": "^1.26.2",
+        "sass-loader": "^8.0.2"
     },
     "dependencies": {
         "gulp": "^4.0.2",
+        "gulp-clean-css": "^4.2.0",
         "gulp-sass": "^4.0.2",
-        "webpack": "^4.31.0"
+        "webpack": "^4.42.0"
     }
 }
