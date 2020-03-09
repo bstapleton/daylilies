@@ -46,7 +46,10 @@ class HybridiserController extends BaseController
             'isCategoryView' => false,
             'pageHeading' => 'Daylilies by ' . $hybridiser->full_name,
             'title' => 'Daylilies by ' . $hybridiser->full_name,
-            'metaDescription' => 'Daylilies hybridised by ' . $hybridiser->full_name
+            'metaDescription' => 'Daylilies hybridised by ' . $hybridiser->full_name,
+            'thisYearIcon' => $this->getThisYearIcon(),
+            'lastYearIcon' => $this->getLastYearIcon(),
+            'outOfStockIcon' => $this->getOutOfStockIcon()
         ]);
     }
 }
