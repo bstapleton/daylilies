@@ -1,4 +1,11 @@
-.h-heading {
+.h-heading,
+.h-subheading {
     font-family: $font-family-sans-cursive;
     font-weight: normal;
+}
+
+.h-subheading {
+    font-size: 2rem;
+    margin-bottom: $defaultUnit;
+    padding-top: $defaultUnit * 3;
 }

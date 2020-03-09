@@ -34,9 +34,15 @@
     height: 24px;
     margin-right: 8px; }
 
-.h-heading {
+.h-heading,
+.h-subheading {
   font-family: "Great Vibes", cursive;
   font-weight: normal; }
+
+.h-subheading {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  padding-top: 24px; }
 
 .h-no-margin {
   margin: 0; }
