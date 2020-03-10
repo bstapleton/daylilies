@@ -13,7 +13,8 @@
 
     <h2 class="h-subheading">News</h2>
     <div class="c-card c-card--light">
-        <p>A La Carte Daylilies is now in its 17th year, so to mark this in some small way we have added over 70 new plants to the website this year. Many previous prices on this site have been reduced.</p>
+        <p>This year is our 25th year of A La Carte Daylilies. We took the Daylilies to Hampton Court Flower Show three times and the people loved the Daylilies.</p>
+        <p>Over the years we have collected many Daylilies and we have selected many more so do enjoy looking at our website. </p>
         <p>We would also like to thank our many customers for their lovely letters. Enjoy your Daylilies from Jan and Andy.</p>
     </div>
 
