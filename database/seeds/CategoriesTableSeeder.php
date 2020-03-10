@@ -34,19 +34,19 @@ class CategoriesTableSeeder extends Seeder
         ]);
 
         DB::table('categories')->insert([
-            'name' => 'Miniature',
-            'slug' => 'miniature',
-            'description' => '<p>Miniature flowered are any under 3" in diameter.</p><p>There is a particular charm and delicacy about these little plants and what they lack in bloom size they tend to make up for with increased flower production. Ideal for any size of garden and useful when space is at a premium, they are also well suited for growing in containers. Incidentally, the term "miniature" refers only to the flower size and not the height, although they are usually in proportion.</p>',
-            'meta_description' => 'Miniature flowered daylilies make up for their small bloom size (anything under 3 inches) with more flowers per plant. Ideal for where space is at a premium',
+            'name' => 'Spider',
+            'slug' => 'spider',
+            'description' => '<p>Spiders have long narrow flower petals. The petal length to width ratio must be 4:1 or greater.</p><p>These daylilies associate well with grasses and are becoming increasingly popular. We have put daylilies in the category of Unusual Form together with the spiders as they appear spider-like but do not have the appropriate dimensions.<br />They tend to show some twisting, curling or pinching in the flower segments which give them a sculptured, almost architectural look. These can be very interesting to use in garden design.</p>',
+            'meta_description' => 'Spider daylilies here are grouped with unusual forms. They tend to have a sculptured look and can be an interesting choice in garden designs',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
         DB::table('categories')->insert([
-            'name' => 'Spider',
-            'slug' => 'spider',
-            'description' => '<p>Spiders have long narrow flower petals. The petal length to width ratio must be 4:1 or greater.</p><p>These daylilies associate well with grasses and are becoming increasingly popular. We have put daylilies in the category of Unusual Form together with the spiders as they appear spider-like but do not have the appropriate dimensions.<br />They tend to show some twisting, curling or pinching in the flower segments which give them a sculptured, almost architectural look. These can be very interesting to use in garden design.</p>',
-            'meta_description' => 'Spider daylilies here are grouped with unusual forms. They tend to have a sculptured look and can be an interesting choice in garden designs',
+            'name' => 'Miniature',
+            'slug' => 'miniature',
+            'description' => '<p>Miniature flowered are any under 3" in diameter.</p><p>There is a particular charm and delicacy about these little plants and what they lack in bloom size they tend to make up for with increased flower production. Ideal for any size of garden and useful when space is at a premium, they are also well suited for growing in containers. Incidentally, the term "miniature" refers only to the flower size and not the height, although they are usually in proportion.</p>',
+            'meta_description' => 'Miniature flowered daylilies make up for their small bloom size (anything under 3 inches) with more flowers per plant. Ideal for where space is at a premium',
             'created_at' => now(),
             'updated_at' => now()
         ]);
