@@ -1,6 +1,6 @@
 <h1 class="h-heading l-page-content__title">
     @if($isCategoryView)
-        {{ $plants->first()->category->first()->name }} daylilies
+        {{ $plants->first()->category->name }} daylilies
     @elseif(isset($pageHeading))
         {{ $pageHeading }}
     @else
