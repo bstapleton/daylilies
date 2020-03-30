@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+    @include('partials.covid-19')
     @include('partials.plants-introduction')
     <div class="c-plant-grid h-flex h-flex-wrap">
         @foreach($plants as $plant)

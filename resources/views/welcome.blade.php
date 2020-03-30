@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+    @include('partials.covid-19')
     <h1 class="h-heading l-page-content__title">Welcome</h1>
     <div class="c-card c-card--light">
         <p>Welcome to our website devoted entirely to DAYLILIES (Hemerocallis), an enchanting perennial, easy to grow, and in so many colours, shapes, sizes and forms. We have divided our daylilies into four main categories; Large flowered, Small flowered, Miniature and Spider types. We also have a small selection of micro-propagated daylilies.</p>

@@ -22,3 +22,13 @@
     background-color: $brandDark;
     color: #fff;
 }
+
+.c-card--danger {
+    background-color: $outOfStockColour;
+    color: #fff;
+
+    a {
+        color: #fff;
+        text-decoration: underline;
+    }
+}

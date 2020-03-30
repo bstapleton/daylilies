@@ -148,6 +148,13 @@ c-printTable__plantChoice {
   background-color: #006600;
   color: #fff; }
 
+.c-card--danger {
+  background-color: #9c1c1e;
+  color: #fff; }
+  .c-card--danger a {
+    color: #fff;
+    text-decoration: underline; }
+
 @media print {
   .c-card {
     border: 2px solid #006600; } }

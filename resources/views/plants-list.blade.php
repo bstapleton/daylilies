@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+    @include('partials.covid-19')
     @include('partials.plants-introduction')
     <ul class="c-plant-list">
         @foreach($plants as $plant)

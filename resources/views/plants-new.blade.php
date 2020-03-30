@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+    @include('partials.covid-19')
     <h2>{{ date('Y') }}</h2>
     <ul>
         @foreach($thisYear as $plant)

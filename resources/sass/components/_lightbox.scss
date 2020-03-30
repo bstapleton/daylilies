@@ -5,7 +5,7 @@
 
 .c-lightbox__image {
     border-radius: 5px;
-    max-width: 1000px;
+    max-width: 100%;
     margin-bottom: $defaultUnit * 2;
 }
 
@@ -15,6 +15,5 @@
     padding: $defaultUnit * 2;
     font-size: 1.2rem;
     text-align: center;
-    max-width: calc(1000px - (#{$defaultUnit} * 4));
-    width: 100%;
+    width: calc(100% - (#{$defaultUnit} * 4));
 }

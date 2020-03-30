@@ -24,6 +24,4 @@ Route::group(['prefix' => 'plants', 'as' => 'plants.'], function() {
     Route::get('/view/{slug}', 'PlantController@view')->name('view');
 });
 
-
-
 Route::get('/hybridiser/{slug}', 'HybridiserController@listPlants')->name('hybridiser');

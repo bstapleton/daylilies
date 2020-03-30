@@ -37,7 +37,9 @@ class PlantController extends BaseController
         $plant->heightInCm = $this->convertInchesToCentimetres($plant->height);
         $plant->flowerInCm = $this->convertInchesToCentimetres($plant->flower_size);
 
-        return view('plant-view', ['plant' => $plant, 'title' => $plant->name]);
+        $metaDescription = $plant->description;
+
+        return view('plant-view', ['plant' => $plant, 'title' => $plant->name, 'metaDescription' => $metaDescription]);
     }
 
     /**

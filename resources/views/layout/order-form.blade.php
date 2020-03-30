@@ -11,9 +11,8 @@
         gtag('config', 'UA-36420374-1');
     </script>
     <meta charset="utf-8">
-    <title>A La Carte Daylilies - Order form</title>
+    <title>Order form - A La Carte Daylilies</title>
     <meta name="theme-color" content="#006600">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="{{ asset('css/print.css') }}" rel="stylesheet" media="all">
 </head>
 <body class="l-orderForm">

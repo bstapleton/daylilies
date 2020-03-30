@@ -14,16 +14,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     @isset ($title)
-        <title>A La Carte Daylilies - {{ $title }}</title>
+        <title>{{ $title }} - A La Carte Daylilies</title>
     @else
         <title>A La Carte Daylilies</title>
     @endisset
 
     @isset ($metaDescription)
         <meta name="description" content="{{ $metaDescription }}">
+    @else
+        <meta name="description" content="Welcome to our website devoted entirely to DAYLILIES (Hemerocallis), an enchanting perennial, easy to grow, and in so many colours, shapes, sizes and forms.">
     @endisset
     <meta name="theme-color" content="#006600">
-    <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans" rel="stylesheet">
     @env('production')
         <link href="{{ asset('css/dist/app.css') }}" rel="stylesheet">
     @else

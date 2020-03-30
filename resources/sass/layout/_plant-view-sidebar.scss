@@ -4,9 +4,17 @@
     background: $backgroundColour url('/images/noise.png') repeat;
     background-size: 100px;
     padding: 0 ($defaultUnit * 2);
+
+    @include md-down() {
+        margin: 0 auto;
+    }
 }
 
 
 .l-plant-view-sidebar__title {
     margin-top: 0;
+
+    @include md-down() {
+        text-align: center;
+    }
 }
