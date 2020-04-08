@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div itemscope itemtype="http://schema.org/Organization">
+    <div itemscope itemtype="https://schema.org/Organization">
         <h1 class="h-heading l-page-content__title">Contact <span itemprop="name">A La Carte Daylilies</span></h1>
         <div class="c-card c-card--light">
             <p>By E-mail If you have any questions or queries send an email to <span itemprop="email"><a href="mailto:andy@alacartedaylilies.co.uk">andy@alacartedaylilies.co.uk</a></span></p>
@@ -13,7 +13,7 @@
         </div>
         <div class="c-card c-card--light">
             <p>By Post Alternatively, if you'd like to send an order or request a catalogue by post, please send all correspondence to:</p>
-            <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <address itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
                 <span itemprop="streetAddress">Little Hermitage<br />
                     St. Catherine's Down<br /></span>
                 <span itemprop="addressLocality">Nr. Ventnor<br />

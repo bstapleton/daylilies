@@ -37,7 +37,7 @@
             </div>
         @show
 
-        <div class="h-flex h-flex-wrap" itemscope itemtype="http://schema.org/Product">
+        <div class="h-flex h-flex-wrap" itemscope itemtype="https://schema.org/Product">
             <link itemprop="additionalType" href="http://www.productontology.org/id/Plant" />
             <div class="l-plant-view-content">
                 @section('content')

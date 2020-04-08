@@ -7,10 +7,11 @@
 @section('content')
     @include('partials.covid-19')
     @include('partials.plants-introduction')
-    <ul class="c-plant-list">
-        @foreach($plants as $plant)
-            <li class="h-list--unstyled">
-                <article class="h-flex c-plant-list__item" itemscope itemtype="http://schema.org/Product">
+    <ul class="c-plant-list" itemscope itemtype="https://schema.org/ItemList">
+        @foreach($plants as $key => $plant)
+            <li class="h-list--unstyled" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <meta itemprop="position" content="{{ $key + 1 }}">
+                <article class="h-flex c-plant-list__item">
                     <link itemprop="additionalType" href="http://www.productontology.org/id/Plant" />
                     <div class="c-plant-list__thumbnail">
                         <a href="{{ URL::route('plants.view', $plant->slug) }}" title="View details for {{ $plant->name }}"><img class="c-plant-list__image" itemprop="image" loading="lazy" src="{{ $plant->thumbnail }}" alt="{{ $plant->name }}" /></a>
@@ -22,13 +23,12 @@
                                 <i class="c-plant-list__icon">{!! $plant->icon !!}</i>
                             @endisset
                         </header>
-                        <meta itemprop="sku" content="{{ $plant->category->name }}{{ $plant->id }}">
-                        <meta itemprop="mpn" content="{{ $plant->category->name }}{{ $plant->id }}">
                         <div class="c-plant-list__content h-flex">
                             <div class="c-plant-list__description">
-                                <p itemprop="description">
+                                <meta itemprop="url" itemscope content="{{ URL::route('plants.view', $plant->slug) }}">
+                                <p>
                                     @foreach ($plant->hybridisers as $hybridiser)
-                                        <span itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+                                        <span itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
                                             <meta itemprop="name" content="Hybridiser">
                                             <span itemprop="value">{{ $hybridiser->full_name }}</span>
                                         </span>
@@ -36,23 +36,23 @@
                                             &amp;
                                         @endif
                                     @endforeach
-                                    <span itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+                                    <span itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
                                         <meta itemprop="name" content="Year introduced">
                                         (<span itemprop="value">{{ $plant->year_hybridised }}</span>)
                                     </span>
-                                    {{ $plant->description }}
+                                    <span itemprop="description">{{ $plant->description }}</span>
                                 </p>
                                 <ul class="h-list--unstyled h-list--no-spacing h-flex">
-                                    <li class="h-list--horizontal__item c-tag" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+                                    <li class="h-list--horizontal__item c-tag" itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
                                         <meta itemprop="name" content="Ploidy">
                                         <span itemprop="value">{{ $plant->genome->name }}</span>
                                     </li>
-                                    <li class="h-list--horizontal__item c-tag" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+                                    <li class="h-list--horizontal__item c-tag" itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
                                         <meta itemprop="name" content="Foliage type">
                                         <span itemprop="value">{{ $plant->foliage->name }}</span>
                                     </li>
                                     @foreach ($plant->seasons as $season)
-                                        <li class="h-list--horizontal__item c-tag" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+                                        <li class="h-list--horizontal__item c-tag" itemprop="additionalProperty" itemscope itemtype="https://schema.org/PropertyValue">
                                             <meta itemprop="name" content="Bloom time">
                                             <span itemprop="value">{{ $season->name }}</span>
                                         </li>
@@ -61,14 +61,9 @@
                             </div>
 
                             <div class="c-plant-list__stock">
-                                <p class="i" itemprop="offers" itemscope itemtype="http://schema.org/Offer" itemid="#offer">
-                                    <meta itemprop="url" content="http://alacartedaylilies.co.uk/large/airs_and_graces.jpg">
-                                    <meta itemprop="priceCurrency" content="GBP">&pound;<span itemprop="price">{{ $plant->price }}</span>
-                                    @if ($plant->in_stock == true)
-                                        <link itemprop="availability" href="http://schema.org/InStock" />In stock
-                                    @else
-                                        <link itemprop="availability" href="http://schema.org/OutOfStock" />Out of stock
-                                    @endif
+                                <p class="i">
+                                    &pound;<span>{{ $plant->price }}</span>
+                                    {{ $plant->in_stock ? 'In' : 'Out of' }} stock
                                 </p>
                                 <a href="{{ URL::route('plants.view', $plant->slug) }}" title="View details for {{ $plant->name }}" class="c-button--default c-button--block">View Details</a>
                                 @if ($plant->in_stock == true)
