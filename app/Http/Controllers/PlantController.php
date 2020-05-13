@@ -34,6 +34,11 @@ class PlantController extends BaseController
         $plant = Plant::where('slug', $slug)
             ->first();
 
+        if ($plant == null)
+        {
+            return view('error', ['message' => 'Couldn\'t find the details for a plant with that name, sorry.']);
+        }
+
         $plant->heightInCm = $this->convertInchesToCentimetres($plant->height);
         $plant->flowerInCm = $this->convertInchesToCentimetres($plant->flower_size);
 
