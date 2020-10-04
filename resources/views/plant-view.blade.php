@@ -116,7 +116,6 @@
             </span>
         </li>
     </ul>
-    @include('partials.covid-19')
     <a href="{{ request()->headers->get('referer') }}" class="c-button c-button--default">Back</a>
 @endsection
 

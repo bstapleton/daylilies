@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-    @include('partials.covid-19')
     <h1 class="h-heading l-page-content__title">Server error</h1>
     <div class="c-card c-card--light">
         @isset($message)

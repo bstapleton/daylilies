@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-    @include('partials.covid-19')
     @include('partials.plants-introduction')
     <div class="c-plant-grid h-flex h-flex-wrap" itemscope itemtype="https://schema.org/ItemList">
         @foreach($plants as $key => $plant)

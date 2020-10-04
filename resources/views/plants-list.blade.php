@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-    @include('partials.covid-19')
     @include('partials.plants-introduction')
     <ul class="c-plant-list" itemscope itemtype="https://schema.org/ItemList">
         @foreach($plants as $key => $plant)
