@@ -142,8 +142,7 @@
 .l-site-footer {
   padding: 32px;
   background-color: #99cc99;
-  border-top: 8px solid #006600;
-  font-size: 0.8rem; }
+  border-top: 8px solid #006600; }
 
 .l-sidebar-navigation {
   flex: 0 0 200px; }
@@ -217,7 +216,7 @@
 
 .l-plant-view-footer {
   padding: 16px;
-  font-size: 0.8rem; }
+  font-size: 1rem; }
 
 .c-button, .c-button--default, .c-button--success {
   border-radius: 12px;
@@ -398,7 +397,7 @@
   transition: box-shadow 0.2s ease-in-out; }
 
 .c-plant-grid__title {
-  font-size: 0.9rem; }
+  font-size: 1rem; }
 
 .c-plant-grid__link {
   color: #006600; }
